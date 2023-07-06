@@ -1,5 +1,7 @@
 ## BD StreetScenes Dataset
 
+This repo is for BD StreetScenes Dataset.
+
 ## 1. Specification of dependencies 
 
 This code requires Python 3.8 and CUDA 11.6. Create and activate the following conda envrionment.
