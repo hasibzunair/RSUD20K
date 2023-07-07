@@ -4,11 +4,12 @@ This repo is for BD StreetScenes Dataset.
 
 ## 1. Specification of dependencies 
 
-This code requires Python 3.8 and CUDA 11.6. Create and activate the following conda envrionment.
+This code requires Python 3.8 and CUDA 11.4. Create and activate the following conda envrionment.
 
 ```
-# Create
-conda create -n bdstreets python=3.8
+# Create fresh env
+conda create -n bdstr python=3.8
+conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch-lts -c nvidia
 pip install moviepy
 pip install opencv-python
 
