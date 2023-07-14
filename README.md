@@ -25,7 +25,17 @@ videos: has sub folders of different places/conditions which itself has clips of
 
 v1: train/val/test has 54//19/11 videos group partitioned in street level from `videos`.
 
+v2: train/val/test has frames from `v1`.
+
 ## Project Notes
+
+**[July 14, 2023]** Get frames from videos.
+
+```
+python utils/videos_to_frames.py --source ./datasets/v1/test --dest ./datasets/v2/test --maxframes 10
+python utils/videos_to_frames.py --source ./datasets/v1/val --dest ./datasets/v2/val --maxframes 10
+python utils/videos_to_frames.py --source ./datasets/v1/train --dest ./datasets/v2/train --maxframes 10
+```
 
 **[July 6, 2023]** Started project!
 

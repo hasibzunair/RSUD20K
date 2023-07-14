@@ -38,7 +38,7 @@ video_files = os.listdir(args.source)
 
 # Get frames from videos
 for ct, vid_file in enumerate(video_files):
-    if vid_file.endswith('.mp4'):
+    if vid_file.endswith('.mp4') or vid_file.endswith('.MOV'):
         vid_file_path = os.path.join(args.source, vid_file)
         print(f"Processing {vid_file_path}")
 
@@ -61,7 +61,8 @@ print(frame_sub_folders)
 # Stores content of all the listed folders in the dictionary with folder name as key and its content as a value list.
 folder_contents = {}
 for folder in frame_sub_folders:
-    folder_contents[folder] = os.listdir(os.path.join(args.dest, folder))
+    if folder != '.DS_Store':
+        folder_contents[folder] = os.listdir(os.path.join(args.dest, folder))
 
 # Loop through the dictionary with all the folders.
 # Now loop through the content of each folder and one by one move them to the merge folder.
