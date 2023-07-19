@@ -37,8 +37,8 @@ labelImg [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
 **[July 14, 2023]** Get frames from videos.
 
 ```
-python utils/videos_to_frames.py --source ./datasets/v1/test --dest ./datasets/v2/test --maxframes 300
-python utils/videos_to_frames.py --source ./datasets/v1/val --dest ./datasets/v2/val --maxframes 10
+python utils/videos_to_frames.py --source ./datasets/v1/test --dest ./datasets/v2/test --maxframes 250
+python utils/videos_to_frames.py --source ./datasets/v1/val --dest ./datasets/v2/val --maxframes 250
 python utils/videos_to_frames.py --source ./datasets/v1/train --dest ./datasets/v2/train --maxframes 10
 ```
 
