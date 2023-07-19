@@ -12,7 +12,7 @@ put all files in one folder
 delete the separate folders
 
 Usage:
-# python utils/videos_to_frames.py --source ./datasets/resized_videos/ --dest ./datasets/frames --maxframes 10
+# python utils/videos_to_frames.py --source PATH_TO_VIDEOS --dest PATH_TO_IMAGE_FOLDER --maxframes 100
 """
 
 def get_args_parser(add_help=True):
@@ -56,7 +56,6 @@ for ct, vid_file in enumerate(video_files):
 
 # Rename all files in subfolders
 frame_sub_folders = os.listdir(args.dest)
-print(frame_sub_folders)
 
 # Stores content of all the listed folders in the dictionary with folder name as key and its content as a value list.
 folder_contents = {}
@@ -72,7 +71,7 @@ for folder, contents in folder_contents.items():
         src_file = os.path.join(args.dest, folder, content)        
         os.rename(src_file, os.path.join(args.dest, folder, f"{ct}.jpg"))
         src_file_rename = os.path.join(args.dest, folder, f"{ct}.jpg")
-        dst_file_rename = os.path.join(args.dest, f"{ct}.jpg")
+        dst_file_rename = os.path.join(args.dest, f"{os.path.split(args.dest)[-1]}{ct}.jpg")
         
         # move file
         shutil.move(src_file_rename, dst_file_rename)
@@ -80,4 +79,7 @@ for folder, contents in folder_contents.items():
 
 # Delete sub folders
 for folder in frame_sub_folders:
-    os.rmdir(os.path.join(args.dest, folder))
+    if folder != '.DS_Store':
+        os.rmdir(os.path.join(args.dest, folder))
+
+print(f"Images are saved in {args.dest}.")
