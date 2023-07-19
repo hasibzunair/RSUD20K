@@ -29,6 +29,11 @@ v2: train/val/test has frames from `v1`.
 
 ## Project Notes
 
+**[July 19, 2023]** Inspect data with labeImg
+```
+labelImg [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
+```
+
 **[July 14, 2023]** Get frames from videos.
 
 ```
