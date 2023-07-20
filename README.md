@@ -39,7 +39,7 @@ labelImg [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
 ```
 python utils/videos_to_frames.py --source ./datasets/v1/test --dest ./datasets/v2/test --maxframes 250
 python utils/videos_to_frames.py --source ./datasets/v1/val --dest ./datasets/v2/val --maxframes 250
-python utils/videos_to_frames.py --source ./datasets/v1/train --dest ./datasets/v2/train --maxframes 10
+python utils/videos_to_frames.py --source ./datasets/v1/train --dest ./datasets/v2/train --maxframes 250
 ```
 
 **[July 6, 2023]** Started project!
