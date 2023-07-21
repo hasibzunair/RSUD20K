@@ -28,6 +28,7 @@ v1: train/val/test has 54//19/11 videos group partitioned in street level from `
 v2: train/val/test has frames from `v1`.
 
 ## Project Notes
+**[July 20, 2023]** Total images are 21,065!
 
 **[July 19, 2023]** Inspect data with labeImg
 ```
@@ -39,7 +40,7 @@ labelImg [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
 ```
 python utils/videos_to_frames.py --source ./datasets/v1/test --dest ./datasets/v2/test --maxframes 250
 python utils/videos_to_frames.py --source ./datasets/v1/val --dest ./datasets/v2/val --maxframes 250
-python utils/videos_to_frames.py --source ./datasets/v1/train --dest ./datasets/v2/train --maxframes 250
+python utils/videos_to_frames.py --source ./datasets/v1/train --dest ./datasets/v2/train --maxframes 300
 ```
 
 **[July 6, 2023]** Started project!
