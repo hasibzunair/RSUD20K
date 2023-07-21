@@ -35,7 +35,6 @@ args = get_args_parser()
 
 video_files = os.listdir(args.source)
 
-
 # Get frames from videos
 for ct, vid_file in enumerate(video_files):
     if vid_file.endswith('.mp4') or vid_file.endswith('.MOV'):

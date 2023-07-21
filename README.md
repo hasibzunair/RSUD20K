@@ -31,7 +31,7 @@ v2: train/val/test has frames from `v1`.
 
 **[July 21, 2023]** Train images split into labeled and unlabeled sets.
 
-**[July 20, 2023]** Total images are 21,065!
+**[July 20, 2023]** Total images are 21,065! Train, val, test have 14495, 3979 and 2591 images
 
 **[July 19, 2023]** Inspect data with labeImg
 ```
