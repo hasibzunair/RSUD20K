@@ -21,14 +21,14 @@ random.shuffle(file_list)
 
 # Loop through the shuffled list of files
 # labeled
-for file_name in file_list[:5000]:
+for file_name in file_list[:3000]:
     src_file = os.path.join(src_path, file_name)
     dst_file = os.path.join(dst_path1, file_name)
     #print(dst_file)
     shutil.copy(src_file, dst_file)
 
 # unlabeled
-for file_name in file_list[5000:]:
+for file_name in file_list[3000:]:
     src_file = os.path.join(src_path, file_name)
     dst_file = os.path.join(dst_path2, file_name)
     #print(dst_file)
