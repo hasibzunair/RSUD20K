@@ -37,7 +37,7 @@ TBA.
 
 **[Aug 3, 2023]** Train images split into labeled (4000) and unlabeled (14,762) sets.
 
-Total images are 18,762! Train, val, test have 14495, 2887 and 1597 images
+Total images are 18,762 train, 2887 val, and 1597 test.
 
 Labeleing criteria:
 
