@@ -37,19 +37,19 @@ TBA.
 
 **[Aug 3, 2023]** Labeleing criteria:
 
-`person` : draw boxes on persons only that are walking, not on vehicles.
-`rickshaw` : boxes without person if possible. should be a tight box around the object. 
-`rickshaw van` : boxes around any three wheeler vans pulled by humans (e.g. selling vegetables or fruits).
-`auto rickshaw` : any CNG, three wheeler electric veheicles
-`truck`: big or small trucks
-`pickup truck` : blue small vans, other small vans.
+* `person` : draw boxes on persons only that are walking, not on vehicles.
+* `rickshaw` : boxes without person if possible. should be a tight box around the object. 
+* `rickshaw van` : boxes around any three wheeler vans pulled by humans (e.g. selling vegetables or fruits).
+* `auto rickshaw` : any CNG, three wheeler electric veheicles
+* `truck`: big or small trucks
+* `pickup truck` : blue small vans, other small vans.
 private car : any private car (includes jeeps and Noah cars too).
-`motorcycle` : box should not have person if possible.
-`bicycle` : box should not have person if possible.
-`bus`: any bus, small or big (e.g ena bus).
-`micro bus`: big cars like ambulance or other 7/8 seater cars.
-`covered van`: like pickup, but covered.
-`hauler`: leguna!
+* `motorcycle` : box should not have person if possible.
+* `bicycle` : box should not have person if possible.
+* `bus`: any bus, small or big (e.g ena bus).
+* `micro bus`: big cars like ambulance or other 7/8 seater cars.
+* `covered van`: like pickup, but covered.
+* `hauler`: leguna!
 
 In general, all boxes should be tight as possible. If the object is occluded more than 50%, don't label. If more than 50% is visible, only then draw tight box around it. In case of very dense scenes, a bit of overlapping boxes are fine.
 
