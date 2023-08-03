@@ -55,7 +55,8 @@ In general, all boxes should be tight as possible. If the object is occluded mor
 
 **[Aug 3, 2023]** List of classes:
 
-```
+```bash
+# classes.txt
 person
 rickshaw
 rickshaw van
