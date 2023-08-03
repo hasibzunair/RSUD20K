@@ -19,7 +19,7 @@ conda env export > environment.yml
 ```
 
 
-## Dataset Versions
+## 2. Dataset
 
 videos: has sub folders of different places/conditions which itself has clips of different streets.
 
@@ -27,7 +27,13 @@ v1: train/val/test has 54//19/11 videos group partitioned in street level from `
 
 v2: train/val/test has frames from `v1`.
 
+## 3. Training and Evaluation
+TBA.
+
 ## Project Notes
+
+<details><summary>Click to view</summary>
+<br>
 
 **[July 21, 2023]** Train images split into labeled (5000) and unlabeled (9495) sets.
 
@@ -38,12 +44,12 @@ v2: train/val/test has frames from `v1`.
 labelImg [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
 ```
 
-**[July 14, 2023]** Get frames from videos.
+**[July 14, 2023]** Get frames from videos. For val and test, frame sampling rate is 150,180 and for train it is 500.
 
 ```
-python utils/videos_to_frames.py --source ./datasets/bdss_v1/test --dest ./datasets/bdss_v2/test --maxframes 250
-python utils/videos_to_frames.py --source ./datasets/bdss_v1/val --dest ./datasets/bdss_v2/val --maxframes 250
-python utils/videos_to_frames.py --source ./datasets/bdss_v1/train --dest ./datasets/bdss_v2/train --maxframes 300
+python utils/videos_to_frames.py --source ./datasets/bdss_v1/test --dest ./datasets/bdss_v2/test --maxframes 150
+python utils/videos_to_frames.py --source ./datasets/bdss_v1/val --dest ./datasets/bdss_v2/val --maxframes 180
+python utils/videos_to_frames.py --source ./datasets/bdss_v1/train --dest ./datasets/bdss_v2/train --maxframes 400
 ```
 
 **[July 6, 2023]** Started project!
@@ -68,3 +74,8 @@ The videos were in format:
 Where each folder has video clips of different streets of the same area. Video resolution is 1920 × 1080.
 
 From here, we make train val and test sets for the videos by the following rule. For each folder/place/condition, we roughly take 70:20:10 for train val and test sets.
+</details>
+
+## Acknowledgements
+
+Give credits to codebases you built on!
