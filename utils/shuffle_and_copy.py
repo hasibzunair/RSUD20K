@@ -2,7 +2,10 @@ import os
 import random
 import shutil
 
-"""Shuffle and copy images, divide into two sets for labeled and unlabeled data."""
+"""
+Shuffle and copy images in two folders, 
+divide into two sets for labeled and unlabeled data.
+"""
 
 # Set the directory paths
 src_path = './datasets/bdss_v2/train/'

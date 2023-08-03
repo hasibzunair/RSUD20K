@@ -1,6 +1,6 @@
-## BD StreetScenes Dataset
+## BDSS20K
 
-This repo is for BD StreetScenes Dataset.
+This repo is for BDSS20K: A Bangladesh Urban Scenes Understanding Dataset.
 
 ## 1. Specification of dependencies 
 
@@ -56,7 +56,7 @@ hauler
 
 **[July 21, 2023]** Train images split into labeled (5000) and unlabeled (9495) sets.
 
-**[July 20, 2023]** Total images are 21,065! Train, val, test have 14495, 3979 and 2591 images
+**[July 20, 2023]** Total images are X! Train, val, test have 14495, 2887 and 1597 images
 
 **[July 19, 2023]** Inspect data with labeImg
 ```
