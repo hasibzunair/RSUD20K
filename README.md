@@ -35,6 +35,11 @@ TBA.
 <details><summary>Click to view</summary>
 <br>
 
+**[July 21, 2023]** Train images split into labeled (5000) and unlabeled (9495) sets.
+
+**[July 20, 2023]** Total images are 18,762! Train, val, test have 14495, 2887 and 1597 images
+
+
 **[Aug 3, 2023]** Labeleing criteria:
 
 * `person` : draw boxes on persons only that are walking, not on vehicles.
@@ -71,11 +76,6 @@ micro bus
 covered van
 hauler
 ```
-
-
-**[July 21, 2023]** Train images split into labeled (5000) and unlabeled (9495) sets.
-
-**[July 20, 2023]** Total images are X! Train, val, test have 14495, 2887 and 1597 images
 
 **[July 19, 2023]** Inspect data with labeImg
 ```
