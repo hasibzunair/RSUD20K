@@ -35,6 +35,25 @@ TBA.
 <details><summary>Click to view</summary>
 <br>
 
+**[Aug 3, 2023]** List of classes:
+
+```
+person
+rickshaw
+rickshaw van
+auto rickshaw
+truck
+pickup truck
+private car
+motorcycle
+bicycle
+bus
+micro bus
+covered van
+hauler
+```
+
+
 **[July 21, 2023]** Train images split into labeled (5000) and unlabeled (9495) sets.
 
 **[July 20, 2023]** Total images are 21,065! Train, val, test have 14495, 3979 and 2591 images
