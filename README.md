@@ -53,7 +53,7 @@ Labeleing criteria:
 * `bus`: any bus, small or big (e.g ena bus).
 * `micro bus`: big cars like ambulance or other 7/8 seater cars.
 * `covered van`: like pickup, but covered.
-* `hauler`: leguna!
+* `human hauler`: leguna!
 
 In general, all boxes should be tight as possible. If the object is occluded more than 50%, don't label. If more than 50% is visible, only then draw tight box around it. In case of very dense scenes, a bit of overlapping boxes are fine.
 
@@ -73,7 +73,7 @@ bicycle
 bus
 micro bus
 covered van
-hauler
+human hauler
 ```
 
 **[July 19, 2023]** Inspect data with labeImg
