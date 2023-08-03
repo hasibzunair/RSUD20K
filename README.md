@@ -35,7 +35,7 @@ TBA.
 <details><summary>Click to view</summary>
 <br>
 
-**[Aug 3, 2023]** Criteria for labeling objects:
+**[Aug 3, 2023]** Labeleing criteria:
 
 `person` : draw boxes on persons only that are walking, not on vehicles.
 `rickshaw` : boxes without person if possible. should be a tight box around the object. 
