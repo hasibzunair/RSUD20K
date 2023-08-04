@@ -35,6 +35,18 @@ TBA.
 <details><summary>Click to view</summary>
 <br>
 
+**[Aug 4, 2023]** Initial data labeling stats (1hr 74 images).
+
+LabelImg tool on macos:
+
+```bash
+git clone https://github.com/HumanSignal/labelImg
+cd labelImg
+pip3 install pyqt5 lxml
+make qt5py3
+python3 labelImg.py ../../datasets/bdss_v3/chunk2/ ../../datasets/bdss_v3/chunk2_labels/classes.txt
+```
+
 **[Aug 3, 2023]** Train images split into labeled (4000) and unlabeled (14,762) sets.
 
 Total images are 23,246 which has 18,762 train, 2887 val, and 1597 test.
