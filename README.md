@@ -59,11 +59,11 @@ Labeleing criteria:
 * `auto rickshaw` : any CNG, three wheeler electric veheicles
 * `truck`: big or small trucks
 * `pickup truck` : blue small vans, other small vans.
-* `private car` : any private car (includes jeeps and Noah cars too).
+* `private car` : any private car (includes jeeps too).
 * `motorcycle` : box should not have person if possible.
 * `bicycle` : box should not have person if possible.
 * `bus`: any bus, small or big (e.g ena bus).
-* `micro bus`: big cars like ambulance or other 7/8 seater cars.
+* `micro bus`: big cars like ambulance or other 7/8 seater cars (also Noah).
 * `covered van`: like pickup, but covered.
 * `human hauler`: leguna!
 
