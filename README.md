@@ -35,6 +35,10 @@ TBA.
 <details><summary>Click to view</summary>
 <br>
 
+**To remove:** train14839.jpg, train14868.jpg, train14912.jpg, 
+
+**[Sept 14, 2023]** As there are typically no lanes and roads are thin, viewpoints are a problem for an object (i.e. front and back side of object in train14861.jpg) as it is coming and going in the road so need to recognize both viewpoints correctly. This is not usual in other scene datasets. Also, most vehicles are human ridden (rickshaw, rickshaw van, motorcycle, bicycle) so difficult to recognize with person on it. Truck, pickup truck covered van similar, require fine grained understanding, especially when objects are far or close since big or small sizes.
+
 **[Aug 4, 2023]** Initial data labeling stats (1hr 74 images).
 
 LabelImg tool on macos:
