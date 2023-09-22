@@ -2,22 +2,20 @@
 
 This repo is for BDSS20K: A Bangladesh Urban Scenes Understanding Dataset.
 
-## 1. Specification of dependencies 
+## 1. Specification of dependencies
 
 This code requires Python 3.8 and CUDA 11.4. Create and activate the following conda envrionment.
 
-```
+```bash
 # Create fresh env
 conda create -n bdstr python=3.8
 conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch-lts -c nvidia
 pip install moviepy
 pip install opencv-python
 
-
 # Export
 conda env export > environment.yml
 ```
-
 
 ## 2. Dataset
 
@@ -27,7 +25,10 @@ v1: train/val/test has 54//19/11 videos group partitioned in street level from `
 
 v2: train/val/test has frames from `v1`.
 
+v3: 3,985 training images and labels, 14,792 unlabeled images.
+
 ## 3. Training and Evaluation
+
 TBA.
 
 ## Project Notes
@@ -35,7 +36,8 @@ TBA.
 <details><summary>Click to view</summary>
 <br>
 
-**To remove:** train14839.jpg, train14868.jpg, train14912.jpg, 
+
+**[Sept 22, 2023]** 3,985 training images and labels, 14,792 unlabeled images.
 
 **[Sept 14, 2023]** As there are typically no lanes and roads are thin, viewpoints are a problem for an object (i.e. front and back side of object in train14861.jpg, train17305.jpg same object but front back viewpoints, also small, so very hard cases) as it is coming and going in the road so need to recognize both viewpoints correctly. This is not usual in other scene datasets. Also, most vehicles are human ridden (rickshaw, rickshaw van, motorcycle, bicycle) so difficult to recognize with person on it. Truck, pickup truck covered van similar, require fine grained understanding, especially when objects are far or close since big or small sizes.
 
