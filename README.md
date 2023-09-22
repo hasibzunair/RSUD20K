@@ -39,7 +39,7 @@ TBA.
 <br>
 
 
-**[Sept 22, 2023]** 3,985 training images and labels, 14,792 unlabeled images.
+**[Sept 22, 2023]** 3,985 training images and labels, 14,792 unlabeled images.  1008 val, and 656 test. Total of 20,441 images.
 
 **[Sept 14, 2023]** As there are typically no lanes and roads are thin, viewpoints are a problem for an object (i.e. front and back side of object in train14861.jpg, train17305.jpg same object but front back viewpoints, also small, so very hard cases) as it is coming and going in the road so need to recognize both viewpoints correctly. This is not usual in other scene datasets. Also, most vehicles are human ridden (rickshaw, rickshaw van, motorcycle, bicycle) so difficult to recognize with person on it. Truck, pickup truck covered van similar, require fine grained understanding, especially when objects are far or close since big or small sizes.
 
@@ -57,7 +57,7 @@ python3 labelImg.py ../../datasets/bdss_v3/chunk2/ ../../datasets/bdss_v3/chunk2
 
 **[Aug 3, 2023]** Train images split into labeled (4000) and unlabeled (14,762) sets.
 
-Total images are 23,246 which has 18,762 train, 2887 val, and 1597 test.
+Total images are 23,246 which has 18,762 train, 1008 val, and 656 test.
 
 Labeleing criteria:
 
@@ -101,11 +101,11 @@ human hauler
 labelImg [IMAGE_PATH] [PRE-DEFINED CLASS FILE]
 ```
 
-**[July 14, 2023]** Get frames from videos. For val and test, frame sampling rate is 150,180 and for train it is 500.
+**[July 14, 2023]** Get frames from videos. For val and test, frame sampling rate is 60,60 and for train it is 400.
 
 ```
-python utils/videos_to_frames.py --source ./datasets/bdss_v1/test --dest ./datasets/bdss_v2/test --maxframes 150
-python utils/videos_to_frames.py --source ./datasets/bdss_v1/val --dest ./datasets/bdss_v2/val --maxframes 180
+python utils/videos_to_frames.py --source ./datasets/bdss_v1/test --dest ./datasets/bdss_v2/test --maxframes 60
+python utils/videos_to_frames.py --source ./datasets/bdss_v1/val --dest ./datasets/bdss_v2/val --maxframes 60
 python utils/videos_to_frames.py --source ./datasets/bdss_v1/train --dest ./datasets/bdss_v2/train --maxframes 400
 ```
 
