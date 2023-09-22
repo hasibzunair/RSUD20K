@@ -27,6 +27,8 @@ v2: train/val/test has frames from `v1`.
 
 v3: 3,985 training images and labels, 14,792 unlabeled images.
 
+`bdss_4k`: 3,985 training images and labels, 126 validation images and labels from the train set itself.
+
 ## 3. Training and Evaluation
 
 TBA.
