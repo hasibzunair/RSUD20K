@@ -23,9 +23,9 @@ videos: has sub folders of different places/conditions which itself has clips of
 
 v1: train/val/test has 54//19/11 videos group partitioned in street level from `videos`.
 
-v2: train/val/test has frames from `v1`.
+v2: train/val/test has frames from `v1`. 18762, 1008, 656 images.
 
-v3: 3,985 training images and labels, 14,792 unlabeled images.
+v3: 3,985 training images and labels, 14,792 unlabeled images. Some images dropped as no target objects.
 
 `bdss_4k`: 3,985 training images and labels, 126 validation images and labels from the train set itself.
 
