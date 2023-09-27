@@ -73,7 +73,7 @@ python tools/train.py --batch 32 --conf configs/yolov6_lite/yolov6_lite_s_finetu
 # L
 python tools/train.py --batch 32 --conf configs/yolov6l_finetune.py --data data/bdstreets.yaml --device 0
 # M6
-python tools/train.py --batch 16 --conf configs/yolov6m6_finetune.py --data data/bdstreets.yaml --device 0
+python tools/train.py --batch 8 --conf configs/yolov6m6_finetune.py --data data/bdstreets.yaml --device 0
 ```
 
 Initial Results:
