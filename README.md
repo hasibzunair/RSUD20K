@@ -73,8 +73,12 @@ python tools/train.py --batch 32 --conf configs/yolov6_lite/yolov6_lite_s_finetu
 # L
 python tools/train.py --batch 32 --conf configs/yolov6l_finetune.py --data data/bdstreets.yaml --device 0
 # M6
-python tools/train.py --batch 32 --conf configs/yolov6m6_finetune.py --data data/bdstreets.yaml --device 0
+python tools/train.py --batch 16 --conf configs/yolov6m6_finetune.py --data data/bdstreets.yaml --device 0
 ```
+
+Initial Results:
+
+**YOLOv6-Lite-S**: Epoch: 399 | mAP@0.5: 0.7726942928598644 | mAP@0.50:0.95: 0.48885455925036714.
 
 Evaluate model on validation or test set. Model checkpoints are saved in `src/runs` folder.
 
@@ -103,8 +107,6 @@ python deploy/ONNX/export_onnx.py --weights runs/train/exp/weights/best_ckpt.pt 
 
 <details><summary>Click to view</summary>
 <br>
-
-**[Sept 27, 2023]** YOLOv6-Lite-S results: Epoch: 399 | mAP@0.5: 0.7726942928598644 | mAP@0.50:0.95: 0.48885455925036714.
 
 **[Sept 22, 2023]** 3,985 training images and labels, 14,792 unlabeled images.  1008 val, and 656 test. Total of 20,441 images. To train a YOLOv6 model, clone YOLOv6 source code from this commit: https://github.com/meituan/YOLOv6/tree/4364f29bf3244f2e73d0c42a103cd7a9cbb16ca9.
 
