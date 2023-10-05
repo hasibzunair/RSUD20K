@@ -109,11 +109,13 @@ python deploy/ONNX/export_onnx.py --weights runs/train/exp/weights/best_ckpt.pt 
 <details><summary>Click to view</summary>
 <br>
 
+**[Oct 5, 2023]** Relabel data: python3 labelImg.py ../../datasets/bdss_v4/test/images/ ../../datasets/bdss_v4/test/labels/classes.txt
+
 **[Sept 28, 2023]** For semi-automatic stage, val and test set images are inferred using YOLOv6 M6.
 
 **[Sept 22, 2023]** 3,985 training images and labels, 14,792 unlabeled images.  1008 val, and 656 test. Total of 20,441 images. To train a YOLOv6 model, clone YOLOv6 source code from this commit: https://github.com/meituan/YOLOv6/tree/4364f29bf3244f2e73d0c42a103cd7a9cbb16ca9.
 
-**[Sept 14, 2023]** As there are typically no lanes and roads are thin, viewpoints are a problem for an object (i.e. front and back side of object in train14861.jpg, train17305.jpg same object but front back viewpoints, also small, so very hard cases) as it is coming and going in the road so need to recognize both viewpoints correctly. This is not usual in other scene datasets. Also, most vehicles are human ridden (rickshaw, rickshaw van, motorcycle, bicycle) so difficult to recognize with person on it. Truck, pickup truck covered van similar, require fine grained understanding, especially when objects are far or close since big or small sizes.
+**[Sept 14, 2023]** As there are typically no lanes and roads are thin, viewpoints are a problem for an object (i.e. front and back side of object in train14861.jpg, train17305.jpg same object but front back viewpoints, also small, so very hard cases) as it is coming and going in the road so need to recognize both viewpoints correctly. This is not usual in other scene datasets. Also, most vehicles are human ridden (rickshaw, rickshaw van, motorcycle, bicycle) so difficult to recognize with person on it. Truck, pickup truck covered van similar, require fine grained understanding, especially when objects are far or close since big or small sizes. Scene challenges: night time, rainy, glare from sun, blurry images. What else?
 
 **[Aug 4, 2023]** Initial data labeling stats (1hr 74 images).
 
