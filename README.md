@@ -69,33 +69,33 @@ Open a new folder named `datasets` and keep it there.
 
 ## 3. Training and Evaluation
 
-To train a YOLOv6 model, first download the pretrained model (S and L operating at 320*320) from [here](https://github.com/meituan/YOLOv6/tree/4364f29bf3244f2e73d0c42a103cd7a9cbb16ca9#mobile-benchmark) and put them in `src/weights` folder. Then run:
+To train a YOLOv6 model, first download the pretrained model (S and L operating at 320*320) from [here](https://github.com/meituan/YOLOv6/releases/tag/0.4.0) and put them in `src/weights` folder. Then run:
 
 ```bash
 cd src
-# Lite-S
-python tools/train.py --batch 32 --conf configs/yolov6_lite/yolov6_lite_s_finetune.py --data data/bdstreets.yaml --device 0
+# S
+python tools/train.py --batch 32 --conf configs/yolov6s_finetune.py --data data/bdss.yaml --device 0
 # L
-python tools/train.py --batch 32 --conf configs/yolov6l_finetune.py --data data/bdstreets.yaml --device 0
+python tools/train.py --batch 32 --conf configs/yolov6l_finetune.py --data data/bdss.yaml --device 0
 # M6
-python tools/train.py --batch 12 --conf configs/yolov6m6_finetune.py --data data/bdstreets.yaml --device 0
+python tools/train.py --batch 12 --conf configs/yolov6m6_finetune.py --data data/bdss.yaml --device 0
 ```
 
 Evaluate model on validation or test set. Model checkpoints are saved in `src/runs` folder.
 
 ```bash
-python tools/eval.py --data data/bdstreets.yaml  --weights runs/train/exp/weights/best_ckpt.pt --task val --device 0
+python tools/eval.py --data data/bdss.yaml  --weights runs/train/exp/weights/best_ckpt.pt --task val --device 0
 ```
 
 Make predictions on set of images or videos.
 
 ```bash
 # infer on images
-python tools/infer.py --weights runs/train/exp/weights/best_ckpt.pt --yaml data/bdstreets.yaml --source ../datasets/bdss_4k/images/val  --device 0
+python tools/infer.py --weights runs/train/exp/weights/best_ckpt.pt --yaml data/bdss.yaml --source ../datasets/bdss5k/images/val  --device 0
 # infer on videos
-python tools/infer.py --weights runs/train/exp/weights/best_ckpt.pt --yaml data/bdstreets.yaml --source ../datasets/resized_videos/ --device 0
+python tools/infer.py --weights runs/train/exp/weights/best_ckpt.pt --yaml data/bdss.yaml --source ../datasets/resized_videos/ --device 0
 # infer on images and save .txt files for pseudo labels
-python tools/infer.py --weights runs/train/exp/weights/best_ckpt.pt --yaml data/bdstreets.yaml --source ../datasets/images/  --device 0 --save-txt
+python tools/infer.py --weights runs/train/exp/weights/best_ckpt.pt --yaml data/bdss.yaml --source ../datasets/images/  --device 0 --save-txt
 ```
 
 ## Project Notes

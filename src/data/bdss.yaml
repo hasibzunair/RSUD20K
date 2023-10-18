@@ -1,7 +1,7 @@
 # Please insure that your custom_dataset are put in same parent dir with YOLOv6_DIR
-train: ../datasets/bdss_4k/images/train # train images
-val: ../datasets/bdss_4k/images/val # val images
-test: ../datasets/bdss_4k/images/val # test images (optional)
+train: ../datasets/bdss5k/images/train # train images
+val: ../datasets/bdss5k/images/val # val images
+test: ../datasets/bdss5k/images/val # test images (optional)
 
 # whether it is coco dataset, only coco dataset should be set to True.
 is_coco: False
