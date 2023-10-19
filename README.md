@@ -85,13 +85,14 @@ Evaluate model on validation or test set. Model checkpoints are saved in `src/ru
 
 ```bash
 python tools/eval.py --data data/bdss.yaml  --weights runs/train/exp/weights/best_ckpt.pt --task val --device 0
+python tools/eval.py --data data/bdss.yaml  --weights runs/train/exp/weights/best_ckpt.pt --task test --device 0
 ```
 
 Make predictions on set of images or videos.
 
 ```bash
 # infer on images
-python tools/infer.py --weights runs/train/exp/weights/best_ckpt.pt --yaml data/bdss.yaml --source ../datasets/bdss5k/images/val  --device 0
+python tools/infer.py --weights runs/train/exp/weights/best_ckpt.pt --yaml data/bdss.yaml --source ../datasets/bdss5k/images/test  --device 0
 # infer on videos
 python tools/infer.py --weights runs/train/exp/weights/best_ckpt.pt --yaml data/bdss.yaml --source ../datasets/resized_videos/ --device 0
 # infer on images and save .txt files for pseudo labels
