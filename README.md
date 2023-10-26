@@ -13,7 +13,7 @@ cd tarmakplay-vision
 conda create -n bdstr python=3.8
 pip install moviepy
 pip install opencv-python
-pip install -r src/requirements.txt # for YOLOv6
+pip install -r yolov6_src/requirements.txt # for YOLOv6
 # Export
 conda env export > environment.yml
 
@@ -69,10 +69,10 @@ Open a new folder named `datasets` and keep it there.
 
 ## 3. Training and Evaluation
 
-To train a YOLOv6 model, first download the pretrained model (S and L operating at 320*320) from [here](https://github.com/meituan/YOLOv6/releases/tag/0.4.0) and put them in `src/weights` folder. Then run:
+To train a YOLOv6 model, first download the pretrained model (S and L operating at 320*320) from [here](https://github.com/meituan/YOLOv6/releases/tag/0.4.0) and put them in `yolov6_src/weights` folder. Then run:
 
 ```bash
-cd src
+cd yolov6_src
 # S
 python tools/train.py --batch 32 --conf configs/yolov6s_finetune.py --data data/bdss.yaml --device 0
 # L
@@ -81,7 +81,7 @@ python tools/train.py --batch 32 --conf configs/yolov6l_finetune.py --data data/
 python tools/train.py --batch 12 --conf configs/yolov6m6_finetune.py --data data/bdss.yaml --device 0
 ```
 
-Evaluate model on validation or test set. Model checkpoints are saved in `src/runs` folder.
+Evaluate model on validation or test set. Model checkpoints are saved in `yolov6_src/runs` folder.
 
 ```bash
 python tools/eval.py --data data/bdss.yaml  --weights runs/train/exp/weights/best_ckpt.pt --task val --device 0
