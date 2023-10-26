@@ -3,6 +3,7 @@ datasets/
 labeler/
 weights/
 runs/
+images/
 
 .DS_Store
 *.pt

@@ -13,8 +13,10 @@ import datetime
 
 ROOT = os.getcwd()
 if str(ROOT) not in sys.path:
-    sys.path.append(str(ROOT))
+    #sys.path.append(str(ROOT))
+    sys.path.insert(0, str(ROOT))
 
+print(ROOT)
 from yolov6.core.engine import Trainer
 from yolov6.utils.config import Config
 from yolov6.utils.events import LOGGER, save_yaml
