@@ -41,7 +41,7 @@ def get_args_parser(add_help=True):
     parser.add_argument('--do_pr_metric', default=False, type=boolean_string, help='whether to calculate precision, recall and F1, n, set False to close')
     parser.add_argument('--plot_curve', default=True, type=boolean_string, help='whether to save plots in savedir when do pr metric, set False to close')
     parser.add_argument('--plot_confusion_matrix', default=False, action='store_true', help='whether to save confusion matrix plots when do pr metric, might cause no harm warning print')
-    parser.add_argument('--verbose', default=False, action='store_true', help='whether to print metric on each class')
+    parser.add_argument('--verbose', default=True, action='store_true', help='whether to print metric on each class')
     parser.add_argument('--config-file', default='', type=str, help='experiments description file, lower priority than reproduce_640_eval')
     parser.add_argument('--specific-shape', action='store_true', help='rectangular training')
     parser.add_argument('--height', type=int, default=None, help='image height of model input')

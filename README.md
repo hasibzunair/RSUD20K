@@ -75,8 +75,10 @@ To train a YOLOv6 model, first download the pretrained model (S and L operating 
 cd yolov6_src
 # S
 python tools/train.py --batch 32 --conf configs/yolov6s_finetune.py --data data/bdss.yaml --device 0
+# M
+python tools/train.py --batch 12 --conf configs/yolov6m_finetune.py --data data/bdss.yaml --device 0
 # L
-python tools/train.py --batch 32 --conf configs/yolov6l_finetune.py --data data/bdss.yaml --device 0
+python tools/train.py --batch 12 --conf configs/yolov6l_finetune.py --data data/bdss.yaml --device 0
 # M6
 python tools/train.py --batch 12 --conf configs/yolov6m6_finetune.py --data data/bdss.yaml --device 0
 ```
@@ -85,8 +87,11 @@ Evaluate model on validation or test set. Model checkpoints are saved in `yolov6
 
 ```bash
 python tools/eval.py --data data/bdss.yaml  --weights runs/train/exp/weights/best_ckpt.pt --task val --device 0
-python tools/eval.py --data data/bdss.yaml  --weights runs/train/exp/weights/best_ckpt.pt --task test --device 0
+python tools/eval.py --data data/bdss.yaml  --weights runs/train/exp/weights/best_ckpt.pt --task test --save_dir runs/test/ --device 0
+# or
+source run_eval.sh
 ```
+
 
 Make predictions on set of images or videos.
 
