@@ -12,7 +12,7 @@ import sys
 
 
 VOCAB = "custom"
-CONFIDENCE_THRESHOLD = 0.7
+CONFIDENCE_THRESHOLD = 0.5
 
 def setup_cfg(args):
     from centernet.config import add_centernet_config
