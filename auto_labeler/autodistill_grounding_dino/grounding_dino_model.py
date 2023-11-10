@@ -28,7 +28,7 @@ class GroundingDINO(DetectionBaseModel):
     box_threshold: float
     text_threshold: float
 
-    def __init__(self, ontology: CaptionOntology, box_threshold=0.50, text_threshold=0.50):
+    def __init__(self, ontology: CaptionOntology, box_threshold=0.60, text_threshold=0.50):
         self.ontology = ontology
         self.grounding_dino_model = load_grounding_dino()
         self.box_threshold = box_threshold
