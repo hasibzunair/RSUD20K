@@ -100,13 +100,15 @@ python tools/infer.py --weights runs/train/exp/weights/best_ckpt.pt --yaml data/
 # infer on videos
 python tools/infer.py --weights runs/train/exp/weights/best_ckpt.pt --yaml data/bdss.yaml --source ../datasets/resized_videos/ --device 0
 # infer on images and save .txt files for pseudo labels
-python tools/infer.py --weights runs/train/exp/weights/best_ckpt.pt --yaml data/bdss.yaml --source ../datasets/images/  --device 0 --save-txt
+python tools/infer.py --weights runs/pseudo/YOLOv6-M6/train/exp/weights/best_ckpt.pt --yaml data/bdss.yaml --source ../datasets/train_unlbl/  --device 0 --save-txt
 ```
 
 ## Project Notes
 
 <details><summary>Click to view</summary>
 <br>
+
+**[Nov 14, 2023]** Infer on train_unlbl 14,762 images using using YOLOv6-M6 (full-auto).
 
 **[Oct 18, 2023]** Created bdss5k which has 3,985, 1,004 and 649 train, val and test image/label pairs respectively.
 
