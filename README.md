@@ -108,6 +108,8 @@ python tools/infer.py --weights runs/pseudo/YOLOv6-M6/train/exp/weights/best_ckp
 <details><summary>Click to view</summary>
 <br>
 
+**[Nov 16, 2023]** Created BDSS20K! 18681 train, 1004 val and 649 test pairs. Total 20,334 pairs.
+
 **[Nov 14, 2023]** Infer on train_unlbl 14,762 images using using YOLOv6-M6 (full-auto).
 
 **[Oct 18, 2023]** Created bdss5k which has 3,985, 1,004 and 649 train, val and test image/label pairs respectively.
