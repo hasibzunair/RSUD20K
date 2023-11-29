@@ -60,10 +60,10 @@ human hauler
 
 | Name  | Number of images/label pairs |
 | ------------- | ------------- |
-| `train`  | 3,985 |
+| `train`  | 3985 |
 | `val`  | 1004 |
 | `test`  | 649 |
-| `pseudo`  | 14,762 |
+| `pseudo`  | 14696 |
 
 Open a new folder named `datasets` and keep it there.
 
@@ -108,9 +108,9 @@ python tools/infer.py --weights runs/pseudo/YOLOv6-M6/train/exp/weights/best_ckp
 <details><summary>Click to view</summary>
 <br>
 
-**[Nov 16, 2023]** Created BDSS20K! 18681 train, 1004 val and 649 test pairs. Total 20,334 pairs.
+**[Nov 16, 2023]** Created BDSS20K! 18681 train (3985 labeled + 14696 pseudo), 1004 val and 649 test pairs. Total 20,334 pairs.
 
-**[Nov 14, 2023]** Infer on train_unlbl 14,762 images using using YOLOv6-M6 (full-auto).
+**[Nov 14, 2023]** Infer on train_unlbl 14,762 images using using YOLOv6-M6 (full-auto). 14696 images after cleaning.
 
 **[Oct 18, 2023]** Created bdss5k which has 3,985, 1,004 and 649 train, val and test image/label pairs respectively.
 
