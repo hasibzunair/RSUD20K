@@ -63,9 +63,9 @@ human hauler
 | `train`  | 3985 |
 | `val`  | 1004 |
 | `test`  | 649 |
-| `pseudo`  | 14696 |
+| `pseudo` (used for training)  | 14696 |
 
-Open a new folder named `datasets` and keep it there.
+Filenames of different splits types can be found in [split-names.csv](./csv/split-names.csv). Open a new folder named `datasets` and keep it there.
 
 ## 3. Training and Evaluation
 
