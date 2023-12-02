@@ -5,7 +5,7 @@ weights/
 runs/
 images/
 predictions/
-
+work_dirs/
 
 .DS_Store
 *.pt
