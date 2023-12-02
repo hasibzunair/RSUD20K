@@ -1,5 +1,6 @@
 # Custom
 /datasets/
+/datasets_json/
 labeler/
 weights/
 runs/
