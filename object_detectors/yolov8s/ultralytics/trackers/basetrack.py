@@ -15,7 +15,8 @@ class TrackState:
 
 
 class BaseTrack:
-    """Base class for object tracking, handling basic track attributes and operations."""
+    """Base class for object tracking, handling basic track attributes and
+    operations."""
 
     _count = 0
 

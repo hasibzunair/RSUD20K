@@ -9,20 +9,24 @@ from ultralytics.data.augment import Compose, Format, v8_transforms
 from ultralytics.models.yolo.detect import DetectionValidator
 from ultralytics.utils import colorstr, ops
 
-__all__ = 'RTDETRValidator',  # tuple or list
+__all__ = ("RTDETRValidator",)  # tuple or list
 
 
 class RTDETRDataset(YOLODataset):
-    """
-    Real-Time DEtection and TRacking (RT-DETR) dataset class extending the base YOLODataset class.
+    """Real-Time DEtection and TRacking (RT-DETR) dataset class extending the
+    base YOLODataset class.
 
-    This specialized dataset class is designed for use with the RT-DETR object detection model and is optimized for
-    real-time detection and tracking tasks.
+    This specialized dataset class is designed for use with the RT-DETR object
+    detection model and is optimized for real-time detection and tracking
+    tasks.
     """
 
     def __init__(self, *args, data=None, **kwargs):
-        """Initialize the RTDETRDataset class by inheriting from the YOLODataset class."""
-        super().__init__(*args, data=data, use_segments=False, use_keypoints=False, **kwargs)
+        """Initialize the RTDETRDataset class by inheriting from the
+        YOLODataset class."""
+        super().__init__(
+            *args, data=data, use_segments=False, use_keypoints=False, **kwargs
+        )
 
     # NOTE: add stretch version load_image for RTDETR mosaic
     def load_image(self, i, rect_mode=False):
@@ -39,20 +43,23 @@ class RTDETRDataset(YOLODataset):
             # transforms = Compose([LetterBox(new_shape=(self.imgsz, self.imgsz), auto=False, scaleFill=True)])
             transforms = Compose([])
         transforms.append(
-            Format(bbox_format='xywh',
-                   normalize=True,
-                   return_mask=self.use_segments,
-                   return_keypoint=self.use_keypoints,
-                   batch_idx=True,
-                   mask_ratio=hyp.mask_ratio,
-                   mask_overlap=hyp.overlap_mask))
+            Format(
+                bbox_format="xywh",
+                normalize=True,
+                return_mask=self.use_segments,
+                return_keypoint=self.use_keypoints,
+                batch_idx=True,
+                mask_ratio=hyp.mask_ratio,
+                mask_overlap=hyp.overlap_mask,
+            )
+        )
         return transforms
 
 
 class RTDETRValidator(DetectionValidator):
-    """
-    RTDETRValidator extends the DetectionValidator class to provide validation capabilities specifically tailored for
-    the RT-DETR (Real-Time DETR) object detection model.
+    """RTDETRValidator extends the DetectionValidator class to provide
+    validation capabilities specifically tailored for the RT-DETR (Real-Time
+    DETR) object detection model.
 
     The class allows building of an RTDETR-specific dataset for validation, applies Non-maximum suppression for
     post-processing, and updates evaluation metrics accordingly.
@@ -70,9 +77,8 @@ class RTDETRValidator(DetectionValidator):
         For further details on the attributes and methods, refer to the parent DetectionValidator class.
     """
 
-    def build_dataset(self, img_path, mode='val', batch=None):
-        """
-        Build an RTDETR Dataset.
+    def build_dataset(self, img_path, mode="val", batch=None):
+        """Build an RTDETR Dataset.
 
         Args:
             img_path (str): Path to the folder containing images.
@@ -87,8 +93,9 @@ class RTDETRValidator(DetectionValidator):
             hyp=self.args,
             rect=False,  # no rect
             cache=self.args.cache or None,
-            prefix=colorstr(f'{mode}: '),
-            data=self.data)
+            prefix=colorstr(f"{mode}: "),
+            data=self.data,
+        )
 
     def postprocess(self, preds):
         """Apply Non-maximum suppression to prediction outputs."""
@@ -111,19 +118,29 @@ class RTDETRValidator(DetectionValidator):
     def update_metrics(self, preds, batch):
         """Metrics."""
         for si, pred in enumerate(preds):
-            idx = batch['batch_idx'] == si
-            cls = batch['cls'][idx]
-            bbox = batch['bboxes'][idx]
+            idx = batch["batch_idx"] == si
+            cls = batch["cls"][idx]
+            bbox = batch["bboxes"][idx]
             nl, npr = cls.shape[0], pred.shape[0]  # number of labels, predictions
-            shape = batch['ori_shape'][si]
-            correct_bboxes = torch.zeros(npr, self.niou, dtype=torch.bool, device=self.device)  # init
+            shape = batch["ori_shape"][si]
+            correct_bboxes = torch.zeros(
+                npr, self.niou, dtype=torch.bool, device=self.device
+            )  # init
             self.seen += 1
 
             if npr == 0:
                 if nl:
-                    self.stats.append((correct_bboxes, *torch.zeros((2, 0), device=self.device), cls.squeeze(-1)))
+                    self.stats.append(
+                        (
+                            correct_bboxes,
+                            *torch.zeros((2, 0), device=self.device),
+                            cls.squeeze(-1),
+                        )
+                    )
                     if self.args.plots:
-                        self.confusion_matrix.process_batch(detections=None, labels=cls.squeeze(-1))
+                        self.confusion_matrix.process_batch(
+                            detections=None, labels=cls.squeeze(-1)
+                        )
                 continue
 
             # Predictions
@@ -144,11 +161,15 @@ class RTDETRValidator(DetectionValidator):
                 # TODO: maybe remove these `self.` arguments as they already are member variable
                 if self.args.plots:
                     self.confusion_matrix.process_batch(predn, labelsn)
-            self.stats.append((correct_bboxes, pred[:, 4], pred[:, 5], cls.squeeze(-1)))  # (conf, pcls, tcls)
+            self.stats.append(
+                (correct_bboxes, pred[:, 4], pred[:, 5], cls.squeeze(-1))
+            )  # (conf, pcls, tcls)
 
             # Save
             if self.args.save_json:
-                self.pred_to_json(predn, batch['im_file'][si])
+                self.pred_to_json(predn, batch["im_file"][si])
             if self.args.save_txt:
-                file = self.save_dir / 'labels' / f'{Path(batch["im_file"][si]).stem}.txt'
+                file = (
+                    self.save_dir / "labels" / f'{Path(batch["im_file"][si]).stem}.txt'
+                )
                 self.save_one_txt(predn, self.args.save_conf, shape, file)

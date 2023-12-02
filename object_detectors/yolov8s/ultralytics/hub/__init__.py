@@ -8,9 +8,8 @@ from ultralytics.hub.utils import HUB_API_ROOT, HUB_WEB_ROOT, PREFIX
 from ultralytics.utils import LOGGER, SETTINGS
 
 
-def login(api_key=''):
-    """
-    Log in to the Ultralytics HUB API using the provided API key.
+def login(api_key=""):
+    """Log in to the Ultralytics HUB API using the provided API key.
 
     Args:
         api_key (str, optional): May be an API key or a combination API key and model ID, i.e. key_id
@@ -26,8 +25,8 @@ def login(api_key=''):
 
 
 def logout():
-    """
-    Log out of Ultralytics HUB by removing the API key from the settings file. To log in again, use 'yolo hub login'.
+    """Log out of Ultralytics HUB by removing the API key from the settings
+    file. To log in again, use 'yolo hub login'.
 
     Example:
         ```python
@@ -36,52 +35,68 @@ def logout():
         hub.logout()
         ```
     """
-    SETTINGS['api_key'] = ''
+    SETTINGS["api_key"] = ""
     SETTINGS.save()
     LOGGER.info(f"{PREFIX}logged out ✅. To log in again, use 'yolo hub login'.")
 
 
-def reset_model(model_id=''):
+def reset_model(model_id=""):
     """Reset a trained model to an untrained state."""
-    r = requests.post(f'{HUB_API_ROOT}/model-reset', json={'apiKey': Auth().api_key, 'modelId': model_id})
+    r = requests.post(
+        f"{HUB_API_ROOT}/model-reset",
+        json={"apiKey": Auth().api_key, "modelId": model_id},
+    )
     if r.status_code == 200:
-        LOGGER.info(f'{PREFIX}Model reset successfully')
+        LOGGER.info(f"{PREFIX}Model reset successfully")
         return
-    LOGGER.warning(f'{PREFIX}Model reset failure {r.status_code} {r.reason}')
+    LOGGER.warning(f"{PREFIX}Model reset failure {r.status_code} {r.reason}")
 
 
 def export_fmts_hub():
     """Returns a list of HUB-supported export formats."""
     from ultralytics.engine.exporter import export_formats
-    return list(export_formats()['Argument'][1:]) + ['ultralytics_tflite', 'ultralytics_coreml']
+
+    return list(export_formats()["Argument"][1:]) + [
+        "ultralytics_tflite",
+        "ultralytics_coreml",
+    ]
 
 
-def export_model(model_id='', format='torchscript'):
+def export_model(model_id="", format="torchscript"):
     """Export a model to all formats."""
-    assert format in export_fmts_hub(), f"Unsupported export format '{format}', valid formats are {export_fmts_hub()}"
-    r = requests.post(f'{HUB_API_ROOT}/v1/models/{model_id}/export',
-                      json={'format': format},
-                      headers={'x-api-key': Auth().api_key})
-    assert r.status_code == 200, f'{PREFIX}{format} export failure {r.status_code} {r.reason}'
-    LOGGER.info(f'{PREFIX}{format} export started ✅')
+    assert (
+        format in export_fmts_hub()
+    ), f"Unsupported export format '{format}', valid formats are {export_fmts_hub()}"
+    r = requests.post(
+        f"{HUB_API_ROOT}/v1/models/{model_id}/export",
+        json={"format": format},
+        headers={"x-api-key": Auth().api_key},
+    )
+    assert (
+        r.status_code == 200
+    ), f"{PREFIX}{format} export failure {r.status_code} {r.reason}"
+    LOGGER.info(f"{PREFIX}{format} export started ✅")
 
 
-def get_export(model_id='', format='torchscript'):
+def get_export(model_id="", format="torchscript"):
     """Get an exported model dictionary with download URL."""
-    assert format in export_fmts_hub(), f"Unsupported export format '{format}', valid formats are {export_fmts_hub()}"
-    r = requests.post(f'{HUB_API_ROOT}/get-export',
-                      json={
-                          'apiKey': Auth().api_key,
-                          'modelId': model_id,
-                          'format': format})
-    assert r.status_code == 200, f'{PREFIX}{format} get_export failure {r.status_code} {r.reason}'
+    assert (
+        format in export_fmts_hub()
+    ), f"Unsupported export format '{format}', valid formats are {export_fmts_hub()}"
+    r = requests.post(
+        f"{HUB_API_ROOT}/get-export",
+        json={"apiKey": Auth().api_key, "modelId": model_id, "format": format},
+    )
+    assert (
+        r.status_code == 200
+    ), f"{PREFIX}{format} get_export failure {r.status_code} {r.reason}"
     return r.json()
 
 
-def check_dataset(path='', task='detect'):
-    """
-    Function for error-checking HUB dataset Zip file before upload. It checks a dataset for errors before it is uploaded
-    to the HUB. Usage examples are given below.
+def check_dataset(path="", task="detect"):
+    """Function for error-checking HUB dataset Zip file before upload. It
+    checks a dataset for errors before it is uploaded to the HUB. Usage
+    examples are given below.
 
     Args:
         path (str, optional): Path to data.zip (with data.yaml inside data.zip). Defaults to ''.
@@ -97,4 +112,6 @@ def check_dataset(path='', task='detect'):
         ```
     """
     HUBDatasetStats(path=path, task=task).get_json()
-    LOGGER.info(f'Checks completed correctly ✅. Upload this dataset to {HUB_WEB_ROOT}/datasets/.')
+    LOGGER.info(
+        f"Checks completed correctly ✅. Upload this dataset to {HUB_WEB_ROOT}/datasets/."
+    )

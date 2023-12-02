@@ -5,8 +5,8 @@ from ultralytics.utils.metrics import SegmentMetrics
 
 
 class FastSAMValidator(SegmentationValidator):
-    """
-    Custom validation class for fast SAM (Segment Anything Model) segmentation in Ultralytics YOLO framework.
+    """Custom validation class for fast SAM (Segment Anything Model)
+    segmentation in Ultralytics YOLO framework.
 
     Extends the SegmentationValidator class, customizing the validation process specifically for fast SAM. This class
     sets the task to 'segment' and uses the SegmentMetrics for evaluation. Additionally, plotting features are disabled
@@ -20,9 +20,11 @@ class FastSAMValidator(SegmentationValidator):
         _callbacks: List of callback functions to be invoked during validation.
     """
 
-    def __init__(self, dataloader=None, save_dir=None, pbar=None, args=None, _callbacks=None):
-        """
-        Initialize the FastSAMValidator class, setting the task to 'segment' and metrics to SegmentMetrics.
+    def __init__(
+        self, dataloader=None, save_dir=None, pbar=None, args=None, _callbacks=None
+    ):
+        """Initialize the FastSAMValidator class, setting the task to 'segment'
+        and metrics to SegmentMetrics.
 
         Args:
             dataloader (torch.utils.data.DataLoader): Dataloader to be used for validation.
@@ -35,6 +37,8 @@ class FastSAMValidator(SegmentationValidator):
             Plots for ConfusionMatrix and other related metrics are disabled in this class to avoid errors.
         """
         super().__init__(dataloader, save_dir, pbar, args, _callbacks)
-        self.args.task = 'segment'
-        self.args.plots = False  # disable ConfusionMatrix and other plots to avoid errors
+        self.args.task = "segment"
+        self.args.plots = (
+            False  # disable ConfusionMatrix and other plots to avoid errors
+        )
         self.metrics = SegmentMetrics(save_dir=self.save_dir, on_plot=self.on_plot)

@@ -1,6 +1,5 @@
 # Ultralytics YOLO 🚀, AGPL-3.0 license
-"""
-SAM model interface.
+"""SAM model interface.
 
 This module provides an interface to the Segment Anything Model (SAM) from Ultralytics, designed for real-time image
 segmentation tasks. The SAM model allows for promptable segmentation with unparalleled versatility in image analysis,
@@ -24,17 +23,16 @@ from .predict import Predictor
 
 
 class SAM(Model):
-    """
-    SAM (Segment Anything Model) interface class.
+    """SAM (Segment Anything Model) interface class.
 
-    SAM is designed for promptable real-time image segmentation. It can be used with a variety of prompts such as
-    bounding boxes, points, or labels. The model has capabilities for zero-shot performance and is trained on the SA-1B
-    dataset.
+    SAM is designed for promptable real-time image segmentation. It can be used
+    with a variety of prompts such as bounding boxes, points, or labels. The
+    model has capabilities for zero-shot performance and is trained on the
+    SA-1B dataset.
     """
 
-    def __init__(self, model='sam_b.pt') -> None:
-        """
-        Initializes the SAM model with a pre-trained model file.
+    def __init__(self, model="sam_b.pt") -> None:
+        """Initializes the SAM model with a pre-trained model file.
 
         Args:
             model (str): Path to the pre-trained SAM model file. File should have a .pt or .pth extension.
@@ -42,13 +40,14 @@ class SAM(Model):
         Raises:
             NotImplementedError: If the model file extension is not .pt or .pth.
         """
-        if model and Path(model).suffix not in ('.pt', '.pth'):
-            raise NotImplementedError('SAM prediction requires pre-trained *.pt or *.pth model.')
-        super().__init__(model=model, task='segment')
+        if model and Path(model).suffix not in (".pt", ".pth"):
+            raise NotImplementedError(
+                "SAM prediction requires pre-trained *.pt or *.pth model."
+            )
+        super().__init__(model=model, task="segment")
 
     def _load(self, weights: str, task=None):
-        """
-        Loads the specified weights into the SAM model.
+        """Loads the specified weights into the SAM model.
 
         Args:
             weights (str): Path to the weights file.
@@ -56,9 +55,10 @@ class SAM(Model):
         """
         self.model = build_sam(weights)
 
-    def predict(self, source, stream=False, bboxes=None, points=None, labels=None, **kwargs):
-        """
-        Performs segmentation prediction on the given image or video source.
+    def predict(
+        self, source, stream=False, bboxes=None, points=None, labels=None, **kwargs
+    ):
+        """Performs segmentation prediction on the given image or video source.
 
         Args:
             source (str): Path to the image or video file, or a PIL.Image object, or a numpy.ndarray object.
@@ -70,14 +70,15 @@ class SAM(Model):
         Returns:
             (list): The model predictions.
         """
-        overrides = dict(conf=0.25, task='segment', mode='predict', imgsz=1024)
+        overrides = dict(conf=0.25, task="segment", mode="predict", imgsz=1024)
         kwargs.update(overrides)
         prompts = dict(bboxes=bboxes, points=points, labels=labels)
         return super().predict(source, stream, prompts=prompts, **kwargs)
 
-    def __call__(self, source=None, stream=False, bboxes=None, points=None, labels=None, **kwargs):
-        """
-        Alias for the 'predict' method.
+    def __call__(
+        self, source=None, stream=False, bboxes=None, points=None, labels=None, **kwargs
+    ):
+        """Alias for the 'predict' method.
 
         Args:
             source (str): Path to the image or video file, or a PIL.Image object, or a numpy.ndarray object.
@@ -92,8 +93,7 @@ class SAM(Model):
         return self.predict(source, stream, bboxes, points, labels, **kwargs)
 
     def info(self, detailed=False, verbose=True):
-        """
-        Logs information about the SAM model.
+        """Logs information about the SAM model.
 
         Args:
             detailed (bool, optional): If True, displays detailed information about the model. Defaults to False.
@@ -106,10 +106,10 @@ class SAM(Model):
 
     @property
     def task_map(self):
-        """
-        Provides a mapping from the 'segment' task to its corresponding 'Predictor'.
+        """Provides a mapping from the 'segment' task to its corresponding
+        'Predictor'.
 
         Returns:
             (dict): A dictionary mapping the 'segment' task to its corresponding 'Predictor'.
         """
-        return {'segment': {'predictor': Predictor}}
+        return {"segment": {"predictor": Predictor}}

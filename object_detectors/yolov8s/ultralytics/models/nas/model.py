@@ -1,6 +1,5 @@
 # Ultralytics YOLO 🚀, AGPL-3.0 license
-"""
-YOLO-NAS model interface.
+"""YOLO-NAS model interface.
 
 Example:
     ```python
@@ -23,8 +22,7 @@ from .val import NASValidator
 
 
 class NAS(Model):
-    """
-    YOLO NAS model for object detection.
+    """YOLO NAS model for object detection.
 
     This class provides an interface for the YOLO-NAS models and extends the `Model` class from Ultralytics engine.
     It is designed to facilitate the task of object detection using pre-trained or custom-trained YOLO-NAS models.
@@ -44,20 +42,28 @@ class NAS(Model):
         YOLO-NAS models only support pre-trained models. Do not provide YAML configuration files.
     """
 
-    def __init__(self, model='yolo_nas_s.pt') -> None:
-        """Initializes the NAS model with the provided or default 'yolo_nas_s.pt' model."""
-        assert Path(model).suffix not in ('.yaml', '.yml'), 'YOLO-NAS models only support pre-trained models.'
-        super().__init__(model, task='detect')
+    def __init__(self, model="yolo_nas_s.pt") -> None:
+        """Initializes the NAS model with the provided or default
+        'yolo_nas_s.pt' model."""
+        assert Path(model).suffix not in (
+            ".yaml",
+            ".yml",
+        ), "YOLO-NAS models only support pre-trained models."
+        super().__init__(model, task="detect")
 
     @smart_inference_mode()
     def _load(self, weights: str, task: str):
-        """Loads an existing NAS model weights or creates a new NAS model with pretrained weights if not provided."""
+        """Loads an existing NAS model weights or creates a new NAS model with
+        pretrained weights if not provided."""
         import super_gradients
+
         suffix = Path(weights).suffix
-        if suffix == '.pt':
+        if suffix == ".pt":
             self.model = torch.load(weights)
-        elif suffix == '':
-            self.model = super_gradients.training.models.get(weights, pretrained_weights='coco')
+        elif suffix == "":
+            self.model = super_gradients.training.models.get(
+                weights, pretrained_weights="coco"
+            )
         # Standardize model
         self.model.fuse = lambda verbose=True: self.model
         self.model.stride = torch.tensor([32])
@@ -65,11 +71,10 @@ class NAS(Model):
         self.model.is_fused = lambda: False  # for info()
         self.model.yaml = {}  # for info()
         self.model.pt_path = weights  # for export()
-        self.model.task = 'detect'  # for export()
+        self.model.task = "detect"  # for export()
 
     def info(self, detailed=False, verbose=True):
-        """
-        Logs model info.
+        """Logs model info.
 
         Args:
             detailed (bool): Show detailed information about model.
@@ -79,5 +84,6 @@ class NAS(Model):
 
     @property
     def task_map(self):
-        """Returns a dictionary mapping tasks to respective predictor and validator classes."""
-        return {'detect': {'predictor': NASPredictor, 'validator': NASValidator}}
+        """Returns a dictionary mapping tasks to respective predictor and
+        validator classes."""
+        return {"detect": {"predictor": NASPredictor, "validator": NASValidator}}

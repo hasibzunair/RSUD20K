@@ -9,8 +9,7 @@ from .val import FastSAMValidator
 
 
 class FastSAM(Model):
-    """
-    FastSAM model interface.
+    """FastSAM model interface.
 
     Example:
         ```python
@@ -21,14 +20,21 @@ class FastSAM(Model):
         ```
     """
 
-    def __init__(self, model='FastSAM-x.pt'):
-        """Call the __init__ method of the parent class (YOLO) with the updated default model."""
-        if str(model) == 'FastSAM.pt':
-            model = 'FastSAM-x.pt'
-        assert Path(model).suffix not in ('.yaml', '.yml'), 'FastSAM models only support pre-trained models.'
-        super().__init__(model=model, task='segment')
+    def __init__(self, model="FastSAM-x.pt"):
+        """Call the __init__ method of the parent class (YOLO) with the updated
+        default model."""
+        if str(model) == "FastSAM.pt":
+            model = "FastSAM-x.pt"
+        assert Path(model).suffix not in (
+            ".yaml",
+            ".yml",
+        ), "FastSAM models only support pre-trained models."
+        super().__init__(model=model, task="segment")
 
     @property
     def task_map(self):
-        """Returns a dictionary mapping segment task to corresponding predictor and validator classes."""
-        return {'segment': {'predictor': FastSAMPredictor, 'validator': FastSAMValidator}}
+        """Returns a dictionary mapping segment task to corresponding predictor
+        and validator classes."""
+        return {
+            "segment": {"predictor": FastSAMPredictor, "validator": FastSAMValidator}
+        }

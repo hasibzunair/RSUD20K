@@ -11,12 +11,11 @@ from ultralytics.utils.checks import check_yaml
 from .bot_sort import BOTSORT
 from .byte_tracker import BYTETracker
 
-TRACKER_MAP = {'bytetrack': BYTETracker, 'botsort': BOTSORT}
+TRACKER_MAP = {"bytetrack": BYTETracker, "botsort": BOTSORT}
 
 
 def on_predict_start(predictor, persist=False):
-    """
-    Initialize trackers for object tracking during prediction.
+    """Initialize trackers for object tracking during prediction.
 
     Args:
         predictor (object): The predictor object to initialize trackers for.
@@ -25,12 +24,14 @@ def on_predict_start(predictor, persist=False):
     Raises:
         AssertionError: If the tracker_type is not 'bytetrack' or 'botsort'.
     """
-    if hasattr(predictor, 'trackers') and persist:
+    if hasattr(predictor, "trackers") and persist:
         return
     tracker = check_yaml(predictor.args.tracker)
     cfg = IterableSimpleNamespace(**yaml_load(tracker))
-    assert cfg.tracker_type in ['bytetrack', 'botsort'], \
-        f"Only support 'bytetrack' and 'botsort' for now, but got '{cfg.tracker_type}'"
+    assert cfg.tracker_type in [
+        "bytetrack",
+        "botsort",
+    ], f"Only support 'bytetrack' and 'botsort' for now, but got '{cfg.tracker_type}'"
     trackers = []
     for _ in range(predictor.dataset.bs):
         tracker = TRACKER_MAP[cfg.tracker_type](args=cfg, frame_rate=30)
@@ -44,7 +45,9 @@ def on_predict_postprocess_end(predictor, persist=False):
     path, im0s = predictor.batch[:2]
 
     for i in range(bs):
-        if not persist and predictor.vid_path[i] != str(predictor.save_dir / Path(path[i]).name):  # new video
+        if not persist and predictor.vid_path[i] != str(
+            predictor.save_dir / Path(path[i]).name
+        ):  # new video
             predictor.trackers[i].reset()
 
         det = predictor.results[i].boxes.cpu().numpy()
@@ -59,12 +62,15 @@ def on_predict_postprocess_end(predictor, persist=False):
 
 
 def register_tracker(model, persist):
-    """
-    Register tracking callbacks to the model for object tracking during prediction.
+    """Register tracking callbacks to the model for object tracking during
+    prediction.
 
     Args:
         model (object): The model object to register tracking callbacks for.
         persist (bool): Whether to persist the trackers if they already exist.
     """
-    model.add_callback('on_predict_start', partial(on_predict_start, persist=persist))
-    model.add_callback('on_predict_postprocess_end', partial(on_predict_postprocess_end, persist=persist))
+    model.add_callback("on_predict_start", partial(on_predict_start, persist=persist))
+    model.add_callback(
+        "on_predict_postprocess_end",
+        partial(on_predict_postprocess_end, persist=persist),
+    )

@@ -12,10 +12,11 @@ from .val import RTDETRDataset, RTDETRValidator
 
 
 class RTDETRTrainer(DetectionTrainer):
-    """
-    Trainer class for the RT-DETR model developed by Baidu for real-time object detection. Extends the DetectionTrainer
-    class for YOLO to adapt to the specific features and architecture of RT-DETR. This model leverages Vision
-    Transformers and has capabilities like IoU-aware query selection and adaptable inference speed.
+    """Trainer class for the RT-DETR model developed by Baidu for real-time
+    object detection. Extends the DetectionTrainer class for YOLO to adapt to
+    the specific features and architecture of RT-DETR. This model leverages
+    Vision Transformers and has capabilities like IoU-aware query selection and
+    adaptable inference speed.
 
     Notes:
         - F.grid_sample used in RT-DETR does not support the `deterministic=True` argument.
@@ -32,8 +33,7 @@ class RTDETRTrainer(DetectionTrainer):
     """
 
     def get_model(self, cfg=None, weights=None, verbose=True):
-        """
-        Initialize and return an RT-DETR model for object detection tasks.
+        """Initialize and return an RT-DETR model for object detection tasks.
 
         Args:
             cfg (dict, optional): Model configuration. Defaults to None.
@@ -43,14 +43,15 @@ class RTDETRTrainer(DetectionTrainer):
         Returns:
             (RTDETRDetectionModel): Initialized model.
         """
-        model = RTDETRDetectionModel(cfg, nc=self.data['nc'], verbose=verbose and RANK == -1)
+        model = RTDETRDetectionModel(
+            cfg, nc=self.data["nc"], verbose=verbose and RANK == -1
+        )
         if weights:
             model.load(weights)
         return model
 
-    def build_dataset(self, img_path, mode='val', batch=None):
-        """
-        Build and return an RT-DETR dataset for training or validation.
+    def build_dataset(self, img_path, mode="val", batch=None):
+        """Build and return an RT-DETR dataset for training or validation.
 
         Args:
             img_path (str): Path to the folder containing images.
@@ -60,29 +61,32 @@ class RTDETRTrainer(DetectionTrainer):
         Returns:
             (RTDETRDataset): Dataset object for the specific mode.
         """
-        return RTDETRDataset(img_path=img_path,
-                             imgsz=self.args.imgsz,
-                             batch_size=batch,
-                             augment=mode == 'train',
-                             hyp=self.args,
-                             rect=False,
-                             cache=self.args.cache or None,
-                             prefix=colorstr(f'{mode}: '),
-                             data=self.data)
+        return RTDETRDataset(
+            img_path=img_path,
+            imgsz=self.args.imgsz,
+            batch_size=batch,
+            augment=mode == "train",
+            hyp=self.args,
+            rect=False,
+            cache=self.args.cache or None,
+            prefix=colorstr(f"{mode}: "),
+            data=self.data,
+        )
 
     def get_validator(self):
-        """
-        Returns a DetectionValidator suitable for RT-DETR model validation.
+        """Returns a DetectionValidator suitable for RT-DETR model validation.
 
         Returns:
             (RTDETRValidator): Validator object for model validation.
         """
-        self.loss_names = 'giou_loss', 'cls_loss', 'l1_loss'
-        return RTDETRValidator(self.test_loader, save_dir=self.save_dir, args=copy(self.args))
+        self.loss_names = "giou_loss", "cls_loss", "l1_loss"
+        return RTDETRValidator(
+            self.test_loader, save_dir=self.save_dir, args=copy(self.args)
+        )
 
     def preprocess_batch(self, batch):
-        """
-        Preprocess a batch of images. Scales and converts the images to float format.
+        """Preprocess a batch of images. Scales and converts the images to
+        float format.
 
         Args:
             batch (dict): Dictionary containing a batch of images, bboxes, and labels.
@@ -91,10 +95,14 @@ class RTDETRTrainer(DetectionTrainer):
             (dict): Preprocessed batch.
         """
         batch = super().preprocess_batch(batch)
-        bs = len(batch['img'])
-        batch_idx = batch['batch_idx']
+        bs = len(batch["img"])
+        batch_idx = batch["batch_idx"]
         gt_bbox, gt_class = [], []
         for i in range(bs):
-            gt_bbox.append(batch['bboxes'][batch_idx == i].to(batch_idx.device))
-            gt_class.append(batch['cls'][batch_idx == i].to(device=batch_idx.device, dtype=torch.long))
+            gt_bbox.append(batch["bboxes"][batch_idx == i].to(batch_idx.device))
+            gt_class.append(
+                batch["cls"][batch_idx == i].to(
+                    device=batch_idx.device, dtype=torch.long
+                )
+            )
         return batch

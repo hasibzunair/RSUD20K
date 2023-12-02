@@ -12,8 +12,7 @@ _imshow = cv2.imshow  # copy to avoid recursion errors
 
 
 def imread(filename: str, flags: int = cv2.IMREAD_COLOR):
-    """
-    Read an image from a file.
+    """Read an image from a file.
 
     Args:
         filename (str): Path to the file to read.
@@ -26,8 +25,7 @@ def imread(filename: str, flags: int = cv2.IMREAD_COLOR):
 
 
 def imwrite(filename: str, img: np.ndarray, params=None):
-    """
-    Write an image to a file.
+    """Write an image to a file.
 
     Args:
         filename (str): Path to the file to write.
@@ -45,14 +43,13 @@ def imwrite(filename: str, img: np.ndarray, params=None):
 
 
 def imshow(winname: str, mat: np.ndarray):
-    """
-    Displays an image in the specified window.
+    """Displays an image in the specified window.
 
     Args:
         winname (str): Name of the window.
         mat (np.ndarray): Image to be shown.
     """
-    _imshow(winname.encode('unicode_escape').decode(), mat)
+    _imshow(winname.encode("unicode_escape").decode(), mat)
 
 
 # PyTorch functions ----------------------------------------------------------------------------------------------------
@@ -60,8 +57,8 @@ _torch_save = torch.save  # copy to avoid recursion errors
 
 
 def torch_save(*args, **kwargs):
-    """
-    Use dill (if exists) to serialize the lambda functions where pickle does not do this.
+    """Use dill (if exists) to serialize the lambda functions where pickle does
+    not do this.
 
     Args:
         *args (tuple): Positional arguments to pass to torch.save.
@@ -72,6 +69,6 @@ def torch_save(*args, **kwargs):
     except ImportError:
         import pickle
 
-    if 'pickle_module' not in kwargs:
-        kwargs['pickle_module'] = pickle  # noqa
+    if "pickle_module" not in kwargs:
+        kwargs["pickle_module"] = pickle  # noqa
     return _torch_save(*args, **kwargs)
