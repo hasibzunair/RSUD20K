@@ -43,7 +43,7 @@ Open a new folder named `datasets` and keep it under `object_detectors/` folder.
 
 ## 3. Training and Evaluation
 
-To train YOLOv8s model, first download the pretrained model from [here](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.1/best.pt) and put them in `yolov8s/runs/detect/train/weights/` folder. Then run:
+To train YOLOv8s model, first download the pretrained model from [here](https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8s.pt) and put them in `yolov8s/runs/detect/train/weights/` folder. Then run:
 
 ```bash
 python train.py --yaml_path ./data/bdss20k.yaml --batch_size 12 --epochs 400 --device 0
