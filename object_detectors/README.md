@@ -3,20 +3,7 @@
 This repo is for BDSS20K: A Bangladesh Urban Scenes Understanding Dataset.
 
 ## 1. Dataset
-
-videos: has sub folders of different places/conditions which itself has clips of different streets.
-
-v1: train/val/test has 54//19/11 videos group partitioned in street level from `videos`.
-
-v2: train/val/test has frames from `v1`. 18762, 1008, 656 images.
-
-v3: 3,985 training images and labels, 14,762 unlabeled images. Some images dropped as no target objects.
-
-v4: 3,985 training images and labels, 126 validation images and labels from the train set itself.
-
-`bdss5k` : train, val and test sets have 3,985, 1,004 and 649 image/label pairs respectively. `train` split was used to train YOLOv6-M6 model for pseudo labeleing. `val` and `test` splits were created by semi-automatic labeleing.
-
-For details on format, see [here](https://github.com/meituan/YOLOv6/blob/main/docs/Train_custom_data.md#1-prepare-your-own-dataset). The class list for this task is:
+The class list for this task is:
 
 ```bash
 # classes.txt
@@ -44,7 +31,7 @@ human hauler
 | `test`   | 649                          |
 | `pseudo` | 14,762                       |
 
-Open a new folder named `datasets` and keep it there. Our project utilizes two prominent data formats: COCO and YOLO. The YOLO format is specifically employed for the Yolov8 variants (l, s, m), while the COCO format is adopted for the rtmdet and detr models. For an in-depth understanding of these formats, explore the COCO format [here](https://roboflow.com/formats/coco-json) and the YOLO format [here](https://roboflow.com/formats/yolov8-pytorch-txt).
+Open a new folder named `datasets` and keep it under `object_detectors/` folder. Our project utilizes two prominent data formats: COCO and YOLO. The YOLO format is specifically employed for the Yolov8 variants (l, s, m), while the COCO format is adopted for the rtmdet and detr models. For an in-depth understanding of these formats, explore the COCO format [here](https://roboflow.com/formats/coco-json) and the YOLO format [here](https://roboflow.com/formats/yolov8-pytorch-txt). For details on format, see [here](https://github.com/meituan/YOLOv6/blob/main/docs/Train_custom_data.md#1-prepare-your-own-dataset).
 
 **Example of data formats**:
 
@@ -102,26 +89,28 @@ dataset
 
 ## 2. Training and Evaluation
 
-To train the models follow this:
+To train the different models follow this:
 
-- [Yolov8Large](<>)
-- [Yolov8Medium](<>)
-- [Yolov8Small](<>)
-- [RTMDET](<>)
-- [DETR](<>)
+- [Yolov8Small](https://github.com/hasibzunair/bdss20k-dataset/tree/models/object_detectors/yolov8s)
+- [Yolov8Medium](https://github.com/hasibzunair/bdss20k-dataset/tree/models/object_detectors/yolov8m)
+- [Yolov8Large](https://github.com/hasibzunair/bdss20k-dataset/tree/models/object_detectors/yolov8l)
+- [RTMDET](https://github.com/hasibzunair/bdss20k-dataset/tree/models/object_detectors/rtmdet)
+- [DETR](https://github.com/hasibzunair/bdss20k-dataset/tree/models/object_detectors/detr)
 
-### Done
+##  3. Pre-trained models(Will Update)
 
-- [x] yolov8l
-- [ ] yolov8m
-- [ ] yolov8s
-- [ ] rtmdet
-- [ ] detr
+| Model          | Params(M)	      | mAP(%) | Download    |
+|------------------|------------------|---------|-------------|
+| yolov8s        | 4.8  | 76.06   | [Download](#) |
+| yolov8m | 4.8  | 84.02   | [Download](#) |
+| YOLOV8l           | 4.8          | 39.31   | [Download](#) |
+| rtmdet           | 4.8          | 39.31   | [Download](#) |
+| dete           | 4.8          | 39.31   | [Download](#) |
 
 ### Acknowledgements
 
 This codebase is built on top of:
 
-- Ultralytics: https://github.com/ultralytics/ultralytics
-- MMDetection: https://github.com/open-mmlab/mmdetection
-- MMYolo: https://github.com/open-mmlab/mmyolo
+- [Ultralytics](https://github.com/ultralytics/ultralytics)
+- [MMDetection](https://github.com/open-mmlab/mmdetection)
+- [MMYolo](https://github.com/open-mmlab/mmyolo)
