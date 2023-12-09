@@ -1,7 +1,7 @@
 ## RTMDET
 
 ## 1. Specification of dependencies
-MMYOLO relies on PyTorch, MMCV, MMEngine, and MMDetection. Below are quick steps for installation. Please refer to the [Install Guide](docs/en/get_started/installation.md) for more detailed instructions.
+MMYOLO relies on PyTorch, MMCV, MMEngine, and MMDetection. Below are quick steps for installation. Please refer to the [Install Guide](https://github.com/open-mmlab/mmyolo/blob/main/docs/en/get_started/installation.md) for more detailed instructions.
 
 ```shell
 git clone https://github.com/hasibzunair/bdss20k-dataset.git
