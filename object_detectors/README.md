@@ -101,11 +101,11 @@ To train different models follow this:
 
 | Model          | Params(M)	      | mAP(%) | Download    |
 |------------------|------------------|---------|-------------|
-| `yolov8s`        | 11.2 | 76.06   | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.1/best.pt) |
-| `yolov8m` | 25.9  | 84.02   | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.2/best.pt) |
-| `yolov8l`           | 43.7          | 39.31   | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.3/best.pt) |
-| `rtmdet`           | 4.8          | 39.31   | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.4/best_coco_bbox_mAP_epoch_363.pth) |
-| `detr`           | 41.3          | 39.31   | [Download](#) |
+| `yolov8s`        | 11.2 | 69.40   | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.1/best.pt) |
+| `yolov8m` | 25.9  | 71.8 0  | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.2/best.pt) |
+| `yolov8l`           | 43.7          | 70.40   | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.3/best.pt) |
+| `rtmdet`           | 4.8          | 65.40   | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.4/best_coco_bbox_mAP_epoch_363.pth) |
+| `detr`           | 41.3          | 49.90   | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.5/epoch_400.pth) |
 
 ### Acknowledgements
 
