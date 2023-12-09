@@ -29,7 +29,7 @@ human hauler
 | `train`  | 3,985                        |
 | `val`    | 1004                         |
 | `test`   | 649                          |
-| `pseudo` | 14,762                       |
+| `pseudo` | 14,696                       |
 
 Open a new folder named `datasets` and keep it under `object_detectors/` folder. Our project utilizes two prominent data formats: COCO and YOLO. The YOLO format is specifically employed for the Yolov8 variants (l, s, m), while the COCO format is adopted for the rtmdet and detr models. For an in-depth understanding of these formats, explore the COCO format [here](https://roboflow.com/formats/coco-json) and the YOLO format [here](https://roboflow.com/formats/yolov8-pytorch-txt). For details on format, see [here](https://github.com/meituan/YOLOv6/blob/main/docs/Train_custom_data.md#1-prepare-your-own-dataset).
 
@@ -105,7 +105,7 @@ To train different models follow this:
 | `yolov8m` | 25.9  | 84.02   | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.2/best.pt) |
 | `yolov8l`           | 43.7          | 39.31   | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.3/best.pt) |
 | `rtmdet`           | 4.8          | 39.31   | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.4/best_coco_bbox_mAP_epoch_363.pth) |
-| `detr`           | 4.8          | 39.31   | [Download](#) |
+| `detr`           | 41.3          | 39.31   | [Download](#) |
 
 ### Acknowledgements
 
