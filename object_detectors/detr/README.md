@@ -103,7 +103,7 @@ python tools/test.py configs/detr/detr_r50_8xb2-400e_custom_test.py work_dirs/de
 | rickshaw     | 0.784 | 0.911  | 0.869  | nan   | 0.489 | 0.816 |
 | rickshawvan  | 0.334 | 0.527  | 0.354  | nan   | 0.092 | 0.374 |
 | autorickshaw | 0.802 | 0.904  | 0.881  | nan   | 0.592 | 0.828 |
-| truck        | 0.077 | 0.118  | 0.093  | nan   | 0.191 | 0.043 |
+| truck        | 0.177 | 0.118  | 0.093  | nan   | 0.191 | 0.043 |
 | pickuptruck  | 0.136 | 0.183  | 0.145  | nan   | 0.0   | 0.139 |
 | privatecar   | 0.778 | 0.92   | 0.873  | nan   | 0.676 | 0.799 |
 | motorcycle   | 0.671 | 0.897  | 0.808  | 0.278 | 0.553 | 0.713 |
