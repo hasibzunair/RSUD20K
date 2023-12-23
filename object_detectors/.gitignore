@@ -7,7 +7,10 @@ runs/
 images/
 predictions/
 work_dirs/
-
+utils/*.txt
+utils/save_test_image/
+utils/save_train_image/
+utils/save_val_image/
 .DS_Store
 *.pt
 *.pth
