@@ -26,11 +26,22 @@ CLASS_PATH = args.class_file  # The file containing class names.
 if not os.path.exists(OUTPUT_IMAGE_FOLDER):
     os.makedirs(OUTPUT_IMAGE_FOLDER)
 
+
+def generate_colors(i, bgr=False):
+        hex = ('FF3838', 'FF9D97', 'FF701F', 'FFB21D', 'CFD231', '48F90A', '92CC17', '3DDB86', '1A9334', '00D4BB',
+               '2C99A8', '00C2FF', '344593', '6473FF', '0018EC', '8438FF', '520085', 'CB38FF', 'FF95C8', 'FF37C7')
+        palette = []
+        for iter in hex:
+            h = '#' + iter
+            palette.append(tuple(int(h[1 + i:1 + i + 2], 16) for i in (0, 2, 4)))
+        color = palette[i]
+        return (color[2], color[1], color[0])
+
 def plot_one_box(x, image, color=None, label=None, line_thickness=None):
     # Plots one bounding box on image img
     tl = line_thickness or round(
         0.002 * (image.shape[0] + image.shape[1]) / 2) + 1  # line/font thickness
-    color = color or [random.randint(0, 255) for _ in range(3)]
+    # color = color or [random.randint(0, 255) for _ in range(3)]
     c1, c2 = (int(x[0]), int(x[1])), (int(x[2]), int(x[3]))
     cv2.rectangle(image, c1, c2, color, thickness=tl, lineType=cv2.LINE_AA)
     if label:
@@ -42,7 +53,7 @@ def plot_one_box(x, image, color=None, label=None, line_thickness=None):
                     [225, 255, 255], thickness=tf, lineType=cv2.LINE_AA)
 
 
-def draw_box_on_image(image_name, classes, colors, LABEL_FOLDER, RAW_IMAGE_FOLDER, OUTPUT_IMAGE_FOLDER):
+def draw_box_on_image(image_name, classes, LABEL_FOLDER, RAW_IMAGE_FOLDER, OUTPUT_IMAGE_FOLDER):
     """
     This function will add rectangle boxes on the images.
     """
@@ -77,8 +88,8 @@ def draw_box_on_image(image_name, classes, colors, LABEL_FOLDER, RAW_IMAGE_FOLDE
         y1 = round(y_center-h/2)
         x2 = round(x_center+w/2)
         y2 = round(y_center+h/2)
-
-        plot_one_box([x1, y1, x2, y2], image, color=colors[class_idx],
+       
+        plot_one_box([x1, y1, x2, y2], image, color=generate_colors(class_idx),
                      label=classes[class_idx], line_thickness=None)
 
         cv2.imwrite(save_file_path, image)
@@ -112,16 +123,13 @@ if __name__ == '__main__':
 
     classes = image_names = open(CLASS_PATH).read().strip().split('\n')
     random.seed(42)
-    colors = [[random.randint(0, 255) for _ in range(3)]
-              for _ in range(len(classes))]
-
     image_names = open(IMAGE_NAME_LIST_PATH).read(
     ).strip().split()  
     box_total = 0
     image_total = 0
     for image_name in image_names:  
         box_num = draw_box_on_image(
-            image_name, classes, colors, LABEL_FOLDER, RAW_IMAGE_FOLDER, OUTPUT_IMAGE_FOLDER)  
+            image_name, classes, LABEL_FOLDER, RAW_IMAGE_FOLDER, OUTPUT_IMAGE_FOLDER)  
         box_total += box_num
         image_total += 1
         print('Box number:', box_total, 'Image number:', image_total)
