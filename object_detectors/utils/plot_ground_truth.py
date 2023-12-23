@@ -37,20 +37,24 @@ def generate_colors(i, bgr=False):
         color = palette[i]
         return (color[2], color[1], color[0])
 
-def plot_one_box(x, image, color=None, label=None, line_thickness=None):
+def plot_one_box(x, image, color=None, label=None, line_thickness=None, font=cv2.FONT_HERSHEY_COMPLEX):
     # Plots one bounding box on image img
+    # tl = line_thickness or max(round(
+    #     0.01 * (image.shape[0] + image.shape[1]) / 2) + 1, 2)  # line/font thickness
+    # tl = max(round(sum(image.shape) / 2 * 0.003), 2)
     tl = line_thickness or round(
-        0.002 * (image.shape[0] + image.shape[1]) / 2) + 1  # line/font thickness
-    # color = color or [random.randint(0, 255) for _ in range(3)]
+        0.0025 * (image.shape[0] + image.shape[1]) / 2) + 2  # line/font thickness
     c1, c2 = (int(x[0]), int(x[1])), (int(x[2]), int(x[3]))
     cv2.rectangle(image, c1, c2, color, thickness=tl, lineType=cv2.LINE_AA)
     if label:
-        tf = max(tl - 1, 1)  # font thickness
+        tf = int(max(tl*1.0 - 0.6, 2))  # font thickness
         t_size = cv2.getTextSize(label, 0, fontScale=tl / 3, thickness=tf)[0]
-        c2 = c1[0] + t_size[0], c1[1] - t_size[1] - 3
+        # outside = c1[1] - t_size[1] - 3 >= 0  # label fits outside box
+        c2 = c1[0] + t_size[0], c1[1] - t_size[1] - 3 # if outside else c1[1] + t_size[1] + 3
         cv2.rectangle(image, c1, c2, color, -1, cv2.LINE_AA)  # filled
-        cv2.putText(image, label, (c1[0], c1[1] - 2), 0, tl / 3,
-                    [225, 255, 255], thickness=tf, lineType=cv2.LINE_AA)
+        cv2.putText(image, label, (c1[0], c1[1] - 2), #if outside else c1[1] + t_size[1] + 2), 
+                                    0, tl / 3,
+                                    [255, 255, 255], thickness=tf, lineType=cv2.LINE_AA)
 
 
 def draw_box_on_image(image_name, classes, LABEL_FOLDER, RAW_IMAGE_FOLDER, OUTPUT_IMAGE_FOLDER):
