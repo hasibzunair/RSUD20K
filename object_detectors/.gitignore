@@ -14,7 +14,7 @@ utils/save_val_image/
 .DS_Store
 *.pt
 *.pth
-
+*.pdf
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
