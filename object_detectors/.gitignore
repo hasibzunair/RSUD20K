@@ -11,7 +11,6 @@ utils/*.txt
 utils/save_test_image/
 utils/save_train_image/
 utils/save_val_image/
-utils/large_image/
 .DS_Store
 *.pt
 *.pth
