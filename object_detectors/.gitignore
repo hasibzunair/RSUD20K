@@ -15,6 +15,7 @@ utils/save_val_image/
 *.pt
 *.pth
 *.pdf
+*.ttf
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
