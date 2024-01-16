@@ -97,7 +97,7 @@ To train different models follow this:
 - [RTMDET](https://github.com/hasibzunair/bdss20k-dataset/tree/models/object_detectors/rtmdet)
 - [DETR](https://github.com/hasibzunair/bdss20k-dataset/tree/models/object_detectors/detr)
 
-##  3. Pre-trained models(Will Update)
+##  3. Pre-trained models
 
 | Model          | Params(M)	      | mAP(%) | Download    |
 |------------------|------------------|---------|-------------|
@@ -107,6 +107,30 @@ To train different models follow this:
 | `rtmdet`           | 4.8          | 65.4   | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.4/best_coco_bbox_mAP_epoch_363.pth) |
 | `detr`           | 41.3          | 49.9   | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.5/epoch_400.pth) |
 
+## 4. Folder Structure
+```bash
+object_detectors
+├── datasets
+│   ├── bdss20k
+│   │   ├── images
+│   │   └── labels
+├── datasets_json
+│   ├── annotations
+│   ├── test_bdss20k
+│   ├── train_bdss20k
+│   └── val_bdss20k
+├── detr
+├── rtmdet
+├── yolov8s
+│   └── data
+│       └── bdss20k.yml
+├── yolov8m
+│   └── data
+│       └── bdss20k.yml
+└── yolov8l
+    └── data
+        └── bdss20k.yml
+```
 ### Acknowledgements
 
 This codebase is built on top of:
