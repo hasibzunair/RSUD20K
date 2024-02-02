@@ -23,7 +23,7 @@ def Args():
     parser = argparse.ArgumentParser(description="Train YOLOv8s model with PyTorch.")
     parser.add_argument(
         "--yaml_path",
-        default="./data/c.yaml",
+        default="./data/rsud20k.yaml",
         type=str,
         help="Path to the dataset YAML file.",
     )

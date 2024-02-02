@@ -2,8 +2,8 @@
 
 ## 1. Specification of dependencies
 ```bash
-git clone https://github.com/hasibzunair/bdss20k-dataset.git
-cd bdss20k-dataset/object_detectors/yolov8m
+git clone https://github.com/hasibzunair/RSUD20K.git
+cd RSUD20K/object_detectors/yolov8m
 conda create -n yolo8l python=3.8 -y
 conda activate yolo8l
 pip install ultralytics

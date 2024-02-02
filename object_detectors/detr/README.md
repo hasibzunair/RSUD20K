@@ -4,8 +4,8 @@
 MMDetection works on Linux, Windows, and macOS. It requires Python 3.7+, CUDA 9.2+, and PyTorch 1.8+. Please refer to the [Install Guide](https://mmdetection.readthedocs.io/en/latest/get_started.html) for more detailed instructions.
 
 ```shell
-git clone https://github.com/hasibzunair/bdss20k-dataset.git
-cd bdss20k-dataset/object_detectors/detr
+git clone https://github.com/hasibzunair/RSUD20Kgit
+cd RSUD20K/object_detectors/detr
 conda create -n detr python=3.8 pytorch==1.10.1 torchvision==0.11.2 cudatoolkit=11.3 -c pytorch -y
 conda activate detr
 # install dependencies
