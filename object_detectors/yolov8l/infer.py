@@ -8,7 +8,7 @@ from PIL import Image
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Evaluate and test YOLOv8l model on a test dataset.')
     parser.add_argument('--weights', type=str, default='runs/detect/train/weights/best.pt', help='Path to the model weights file.')
-    parser.add_argument('--test_image_path', default='../datasets/bdss20k/images/test/', type=str, help='Path to test data images.')
+    parser.add_argument('--test_image_path', default='../datasets/rsud20k/images/test/', type=str, help='Path to test data images.')
     parser.add_argument('--img_size', default=640, type=int, help='Image size (pixels) for inference.')
     parser.add_argument('--save_dir', default='predictions/', type=str, help='Directory to save prediction images.')
     args = parser.parse_args()

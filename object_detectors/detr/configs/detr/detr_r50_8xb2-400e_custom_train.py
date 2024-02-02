@@ -25,18 +25,18 @@ train_dataloader = dict(
     dataset=dict(
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='annotations/train_bdss20k.json',
-        data_prefix=dict(img='train_bdss20k/')))
+        ann_file='annotations/train_rsud20k.json',
+        data_prefix=dict(img='train_rsud20k/')))
 
 val_dataloader = dict(
     dataset=dict(
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='annotations/val_bdss20k.json',
-        data_prefix=dict(img='val_bdss20k/')))
+        ann_file='annotations/val_rsud20k.json',
+        data_prefix=dict(img='val_rsud20k/')))
 
 # Modify metric related settings
-val_evaluator = dict(ann_file=data_root + 'annotations/val_bdss20k.json')
+val_evaluator = dict(ann_file=data_root + 'annotations/val_rsud20k.json')
 
 
 # We can use the pre-trained Mask RCNN model to obtain higher performance
