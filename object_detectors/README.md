@@ -1,37 +1,35 @@
-# BDSS20K
+# RSUD20K
 
-This repo is for BDSS20K: A Bangladesh Urban Scenes Understanding Dataset.
+This repo is for RSUD20K: A Bangladesh Urban Scenes Understanding Dataset.
 
-## 1. Dataset
-The class list for this task is:
-
+## 1. Folder Structure
+To reproduce the result, make sure you have this folder structure.
 ```bash
-# classes.txt
-person
-rickshaw
-rickshaw van
-auto rickshaw
-truck
-pickup truck
-private car
-motorcycle
-bicycle
-bus
-micro bus
-covered van
-human hauler
+object_detectors
+├── datasets
+│   ├── bdss20k
+│   │   ├── images
+│   │   └── labels
+├── datasets_json
+│   ├── annotations
+│   ├── test_bdss20k
+│   ├── train_bdss20k
+│   └── val_bdss20k
+├── detr
+├── rtmdet
+├── yolov8s
+│   └── data
+│       └── bdss20k.yml
+├── yolov8m
+│   └── data
+│       └── bdss20k.yml
+└── yolov8l
+    └── data
+        └── bdss20k.yml
 ```
+## 1. Dataset
 
-**Dataset statistics**:
-
-| Name     | Number of images/label pairs |
-| -------- | ---------------------------- |
-| `train`  | 3,985                        |
-| `val`    | 1004                         |
-| `test`   | 649                          |
-| `pseudo` | 14,696                       |
-
-Open a new folder named `datasets` and keep it under `object_detectors/` folder. Our project utilizes two prominent data formats: COCO and YOLO. The YOLO format is specifically employed for the Yolov8 variants (l, s, m), while the COCO format is adopted for the rtmdet and detr models. For an in-depth understanding of these formats, explore the COCO format [here](https://roboflow.com/formats/coco-json) and the YOLO format [here](https://roboflow.com/formats/yolov8-pytorch-txt). For details on format, see [here](https://github.com/meituan/YOLOv6/blob/main/docs/Train_custom_data.md#1-prepare-your-own-dataset).
+Open a new folder named `datasets` and keep it under `object_detectors/` folder. Our project utilizes two prominent data formats: **COCO** and **YOLO**. The YOLO format is specifically employed for the Yolov8 variants (l, s, m), while the COCO format is adopted for the rtmdet and detr models. For an in-depth understanding of these formats, explore the COCO format [here](https://roboflow.com/formats/coco-json) and the YOLO format [here](https://roboflow.com/formats/yolov8-pytorch-txt). For details on format, see [here](https://github.com/meituan/YOLOv6/blob/main/docs/Train_custom_data.md#1-prepare-your-own-dataset).
 
 **Example of data formats**:
 
@@ -107,30 +105,7 @@ To train different models follow this:
 | `rtmdet`           | 4.8          | 65.4   | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.4/best_coco_bbox_mAP_epoch_363.pth) |
 | `detr`           | 41.3          | 49.9   | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.5/epoch_400.pth) |
 
-## 4. Folder Structure
-```bash
-object_detectors
-├── datasets
-│   ├── bdss20k
-│   │   ├── images
-│   │   └── labels
-├── datasets_json
-│   ├── annotations
-│   ├── test_bdss20k
-│   ├── train_bdss20k
-│   └── val_bdss20k
-├── detr
-├── rtmdet
-├── yolov8s
-│   └── data
-│       └── bdss20k.yml
-├── yolov8m
-│   └── data
-│       └── bdss20k.yml
-└── yolov8l
-    └── data
-        └── bdss20k.yml
-```
+
 ### Acknowledgements
 
 This codebase is built on top of:
