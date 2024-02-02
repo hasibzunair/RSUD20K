@@ -7,25 +7,25 @@ To reproduce the result, make sure you have this folder structure.
 ```bash
 object_detectors
 ├── datasets
-│   ├── bdss20k
+│   ├── rsud20k
 │   │   ├── images
 │   │   └── labels
 ├── datasets_json
 │   ├── annotations
-│   ├── test_bdss20k
-│   ├── train_bdss20k
-│   └── val_bdss20k
+│   ├── test_rsud20k
+│   ├── train_rsud20k
+│   └── val_rsud20k
 ├── detr
 ├── rtmdet
 ├── yolov8s
 │   └── data
-│       └── bdss20k.yml
+│       └── rsud20k.yml
 ├── yolov8m
 │   └── data
-│       └── bdss20k.yml
+│       └── rsud20k.yml
 └── yolov8l
     └── data
-        └── bdss20k.yml
+        └── rsud20k.yml
 ```
 ## 1. Dataset
 
