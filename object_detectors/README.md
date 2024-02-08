@@ -12,9 +12,12 @@ object_detectors
 │   │   └── labels
 ├── datasets_json
 │   ├── annotations
+|   │   └── test_rsud20k.json
+|   │   └── train_rsud20k.json
+|   │   └── val_rsud20k.json
 │   ├── test_rsud20k
 │   ├── train_rsud20k
-│   └── val_rsud20k
+│   ├── val_rsud20k
 ├── detr
 ├── rtmdet
 ├── yolov8s
