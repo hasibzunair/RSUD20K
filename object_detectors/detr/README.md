@@ -24,7 +24,7 @@ python tools/train.py configs/detr/detr_r50_8xb2-150e_custom_train.py
 ```
 
 ```bash
-python tools/test.py configs/detr/detr_r50_8xb2-400e_custom_test.py work_dirs/detr_r50_8xb2-400e_custom_train/epoch_400.pth --show-dir show_results --cfg-options test_evaluator.classwise=True`
+python tools/test.py configs/detr/detr_r50_8xb2-400e_custom_test.py work_dirs/detr_r50_8xb2-400e_custom_train/epoch_400.pth --show-dir show_results --cfg-options test_evaluator.classwise=True
 ```
 
 ## 3. Pre-trained models

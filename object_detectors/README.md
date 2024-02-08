@@ -32,7 +32,7 @@ object_detectors
 ```
 ## 1. Dataset
 
-Open a new folder named `datasets` and keep it under `object_detectors/` folder. Our project utilizes two prominent data formats: **COCO** and **YOLO**. The YOLO format is specifically employed for the Yolov8 variants (l, s, m), while the COCO format is adopted for the rtmdet and detr models. For an in-depth understanding of these formats, explore the COCO format [here](https://roboflow.com/formats/coco-json) and the YOLO format [here](https://roboflow.com/formats/yolov8-pytorch-txt). For details on format, see [here](https://github.com/meituan/YOLOv6/blob/main/docs/Train_custom_data.md#1-prepare-your-own-dataset).
+Open two new folder named `datasets` and `datasets_json` and keep it under `object_detectors/` folder. Our project utilizes two prominent data formats: **COCO** and **YOLO**. The YOLO format is specifically employed for the Yolov8 variants (l, s, m), while the COCO format is adopted for the rtmdet and detr models. For an in-depth understanding of these formats, explore the COCO format [here](https://roboflow.com/formats/coco-json) and the YOLO format [here](https://roboflow.com/formats/yolov8-pytorch-txt). For details on format, see [here](https://github.com/meituan/YOLOv6/blob/main/docs/Train_custom_data.md#1-prepare-your-own-dataset).
 
 **Example of data formats**:
 
@@ -40,9 +40,9 @@ Open a new folder named `datasets` and keep it under `object_detectors/` folder.
 # coco format
 dataset
 ├── annotations
-│   ├── train.json
-│   ├── val.json
-│   ├── test.json
+│   ├── train_rsud20k.json
+│   ├── val_rsud20k.json
+│   ├── test_rsud20k.json
 ├── train
 │   ├── 0000000001.jpg
 │   ├── 0000000002.jpg
@@ -92,11 +92,11 @@ dataset
 
 To train different models follow this:
 
-- [Yolov8Small](https://github.com/hasibzunair/bdss20k-dataset/tree/models/object_detectors/yolov8s)
-- [Yolov8Medium](https://github.com/hasibzunair/bdss20k-dataset/tree/models/object_detectors/yolov8m)
-- [Yolov8Large](https://github.com/hasibzunair/bdss20k-dataset/tree/models/object_detectors/yolov8l)
-- [RTMDET](https://github.com/hasibzunair/bdss20k-dataset/tree/models/object_detectors/rtmdet)
-- [DETR](https://github.com/hasibzunair/bdss20k-dataset/tree/models/object_detectors/detr)
+- [Yolov8Small](https://github.com/hasibzunair/RSUD20K/tree/models/object_detectors/yolov8s)
+- [Yolov8Medium](https://github.com/hasibzunair/RSUD20K/tree/models/object_detectors/yolov8m)
+- [Yolov8Large](https://github.com/hasibzunair/RSUD20K/tree/models/object_detectors/yolov8l)
+- [RTMDET](https://github.com/hasibzunair/RSUD20K/tree/models/object_detectors/rtmdet)
+- [DETR](https://github.com/hasibzunair/RSUD20K/tree/models/object_detectors/detr)
 
 ##  3. Pre-trained models
 
