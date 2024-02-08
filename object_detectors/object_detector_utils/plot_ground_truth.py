@@ -6,13 +6,13 @@ import os.path as osp
 from PIL import ImageFont
 
 parser = argparse.ArgumentParser(description="Plot the ground truth boxes on the images.")
-parser.add_argument('--data_path', type=str, default='../datasets/bdss20k',
+parser.add_argument('--data_path', type=str, default='../datasets/rsud20k',
                     help='Path to the dataset.')
 parser.add_argument('--data', type=str, default='test',
                     help='Name of the data folder.')
 parser.add_argument('--output_image_folder', type=str, default='./save_image/',
                     help='Path to the output images.')
-parser.add_argument('--class_file', type=str, default='../datasets/bdss20k/classes.txt',
+parser.add_argument('--class_file', type=str, default='../datasets/rsud20k/classes.txt',
                     help='Path to the file containing class names.')
 args = parser.parse_args()
 
