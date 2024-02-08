@@ -1,4 +1,3 @@
-# python tools/analysis_tools/browse_coco_json.py --data-root ./data/ --img-dir bdss5k/testbdss5k/ --ann-file bdss5k/annotations/test_bdss5k.json
 import argparse
 import os.path as osp
 
