@@ -32,7 +32,7 @@ object_detectors
 ```
 ## 1. Dataset
 
-Open two new folder named `datasets` and `datasets_json` and keep it under `object_detectors/` folder. Our project utilizes two prominent data formats: **COCO** and **YOLO**. The YOLO format is specifically employed for the Yolov8 variants (l, s, m), while the COCO format is adopted for the rtmdet and detr models. For an in-depth understanding of these formats, explore the COCO format [here](https://roboflow.com/formats/coco-json) and the YOLO format [here](https://roboflow.com/formats/yolov8-pytorch-txt). For details on format, see [here](https://github.com/meituan/YOLOv6/blob/main/docs/Train_custom_data.md#1-prepare-your-own-dataset).
+Open two new folder named `datasets` and `datasets_json` and keep it under `object_detectors/` folder. Our project utilizes two prominent data formats: **COCO** and **YOLO**. The YOLO format is specifically employed for the Yolov8 variants (l, s, m), while the COCO format is adopted for the rtmdet and detr models. For an in-depth understanding of these formats, explore the COCO format [here](https://roboflow.com/formats/coco-json) and the YOLO format [here](https://roboflow.com/formats/yolov8-pytorch-txt). For details on format, see [here](https://github.com/meituan/YOLOv6/blob/main/docs/Train_custom_data.md#1-prepare-your-own-dataset). To convert yolo format data to coco format follow this [script](https://github.com/hasibzunair/RSUD20K/blob/models/object_detectors/object_detector_utils/yolo2coco.py).
 
 **Example of data formats**:
 
