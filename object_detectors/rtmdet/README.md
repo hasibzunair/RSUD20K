@@ -27,7 +27,7 @@ python tools/train.py configs/rtmdet/rtmdet_tiny_fast_1xb12-40e_custom_train.py
 ```
 
 ```bash
-python tools/test.py configs/rtmdet/rtmdet_tiny_fast_1xb12-40e_custom_test.py work_dirs/rtmdet_tiny_fast_1xb12-40e_custom_train/epoch_1.pth --show-dir show_results --cfg-options test_evaluator.classwise=True
+python tools/test.py configs/rtmdet/rtmdet_tiny_fast_1xb12-40e_custom_test.py work_dirs/rtmdet_tiny_fast_1xb12-40e_custom_train/best_coco_bbox_mAP_epoch_363.pth --show-dir show_results --cfg-options test_evaluator.classwise=True
 ```
 
 
