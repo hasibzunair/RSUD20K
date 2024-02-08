@@ -22,7 +22,7 @@ Evaluate model on validation or test set. Model checkpoints are saved in `yolov8
 python test.py --weights ./runs/detect/train/weights/best.pt --yaml_path ./data/rsud20k.yaml --batch_size 12 --device 0 
 ```
 
-For inference, download this [file](https://github.com/hasibzunair/RSUD20K/releases/download/v1/yolov8l.pt) and keep this file under this folder `runs/detect/train/weights/`.
+For inference, download [yolov8l.pt](https://github.com/hasibzunair/RSUD20K/releases/download/v1/yolov8l.pt) and keep this file under this folder `runs/detect/train/weights/`.
 ```bash
 python infer.py --weights ./runs/detect/train/weights/yolov8l.pt --test_image_path ../datasets/rsud20k/images/test/ --save_dir predictions/
 ```
