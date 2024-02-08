@@ -20,7 +20,7 @@ mim install -v -e .
 ``` 
 
 ## 2. Training and Evaluation
-To train rtmdet model, first download the pretrained model from [here](https://download.openmmlab.com/mmyolo/v0/rtmdet/rtmdet_tiny_syncbn_fast_8xb32-300e_coco/rtmdet_tiny_syncbn_fast_8xb32-300e_coco_20230102_140117-dbb1dc83.pth). Then run:
+To train rtmdet model run:
 
 ```bash
 python tools/train.py configs/rtmdet/rtmdet_tiny_fast_1xb12-40e_custom_train.py
@@ -32,7 +32,7 @@ python tools/test.py configs/rtmdet/rtmdet_tiny_fast_1xb12-40e_custom_test.py wo
 
 
 ## 3. Pre-trained models
-We provide pretrained models on GitHub Releases for reproducibility. Download the model from [Here](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.4/best_coco_bbox_mAP_epoch_363.pth).
+We provide pretrained models on GitHub Releases for reproducibility. Download the model from [Here](https://github.com/hasibzunair/RSUD20K/releases/download/v1/rtmdet.pth). For inference, keep this file under this folder `work_dirs/rtmdet_tiny_fast_1xb12-40e_custom_train/`.
 
 ## Acknowledgement
 
