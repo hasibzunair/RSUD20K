@@ -102,11 +102,11 @@ To train different models follow this:
 
 | Model          | Params(M)	      | mAP(%) | Download    |
 |------------------|------------------|---------|-------------|
-| `yolov8s`        | 11.2 | 69.4   | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.1/best.pt) |
-| `yolov8m` | 25.9  | 71.8  | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.2/best.pt) |
-| `yolov8l`           | 43.7          | 70.4   | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.3/best.pt) |
-| `rtmdet`           | 4.8          | 65.4   | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.4/best_coco_bbox_mAP_epoch_363.pth) |
-| `detr`           | 41.3          | 49.9   | [Download](https://github.com/hasibzunair/bdss20k-dataset/releases/download/0.0.5/epoch_400.pth) |
+| `yolov8s`        | 11.2 | 69.4   | [Download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/yolov8s.pt) |
+| `yolov8m` | 25.9  | 71.8  | [Download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/yolov8m.pt) |
+| `yolov8l`           | 43.7          | 70.4   | [Download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/yolov8l.pt) |
+| `rtmdet`           | 4.8          | 65.4   | [Download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/rtmdet.pth) |
+| `detr`           | 41.3          | 49.9   | [Download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/detr.pth) |
 
 
 ### Acknowledgements
