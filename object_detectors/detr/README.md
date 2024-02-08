@@ -17,7 +17,7 @@ mim install "mmcv>=2.0.0rc4"
 ```
 
 ## 2. Training and Evaluation
-To train rtmdet model run: 
+To train detr model run: 
 
 ```bash
 python tools/train.py configs/detr/detr_r50_8xb2-150e_custom_train.py
