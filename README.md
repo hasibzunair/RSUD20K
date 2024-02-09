@@ -1,16 +1,28 @@
-## BDSS20K
+## RSUD20K
 
-This repo is for BDSS20K: A Bangladesh Urban Scenes Understanding Dataset.
+**Concordia University**
+
+Hasib Zunair, Shakib Khan, A. Ben Hamza
+
+[[`Paper`](https://arxiv.org/abs/2401.07322)] [[`Project`](link)] [[`Demo`](#4-demo)] [[`BibTeX`](#5-citation)]
+
+This is official code for our **paper under review at ICIP 2024**:<br>
+[RSUD20K: A Dataset for Road Scene Understanding In Autonomous Driving](https://arxiv.org/abs/2401.07322)
+<br>
+ 
+![RSUD20K Dataset](./media/image.png)
+
+RSUD20K is a new object detection dataset for road scene understanding, comprised of over 20K high-resolution images from the driving perspective on Bangladesh roads, and includes 130K bounding box annotations for 13 objects. It encompasses diverse road scenes, narrow streets and highways, objects from different viewpoints and scenes from crowded environments with densely cluttered objects and various weather conditions.
 
 ## 1. Specification of dependencies
 
 This code requires Python 3.8 and CUDA 11.4. Create and activate the following conda envrionment.
 
 ```bash
-git clone https://github.com/dktunited/tarmakplay-vision
-cd tarmakplay-vision
+git clone https://github.com/hasibzunair/RSUD20K
+cd RSUD20K
 # Create fresh env
-conda create -n bdstr python=3.8
+conda create -n rsud python=3.8
 pip install moviepy
 pip install opencv-python
 pip install -r yolov6_src/requirements.txt # for YOLOv6
@@ -20,24 +32,12 @@ conda env export > environment.yml
 # OR create from environment.yml
 conda update conda
 conda env create -f environment.yml
-conda activate bdstr
+conda activate rsud
 ```
 
 ## 2. Dataset
 
-videos: has sub folders of different places/conditions which itself has clips of different streets.
-
-v1: train/val/test has 54//19/11 videos group partitioned in street level from `videos`.
-
-v2: train/val/test has frames from `v1`. 18762, 1008, 656 images.
-
-v3: 3,985 training images and labels, 14,762 unlabeled images. Some images dropped as no target objects.
-
-v4: 3,985 training images and labels, 126 validation images and labels from the train set itself.
-
-`bdss5k` : train, val and test sets have 3,985, 1,004 and 649 image/label pairs respectively. `train` split was used to train YOLOv6-M6 model for pseudo labeleing. `val` and `test` splits were created by semi-automatic labeleing.
-
-For details on format, see [here](https://github.com/meituan/YOLOv6/blob/main/docs/Train_custom_data.md#1-prepare-your-own-dataset). The class list for this task is:
+RSUD20K dataset is available to download at this [link](https://www.kaggle.com/datasets/hasibzunair/rsud20k-bangladesh-road-scene-understanding). RSUD20K consists of the following classes for multi-class object detection:
 
 ```bash
 # classes.txt
@@ -55,6 +55,8 @@ micro bus
 covered van
 human hauler
 ```
+
+For details on format, see [here](https://github.com/meituan/YOLOv6/blob/main/docs/Train_custom_data.md#1-prepare-your-own-dataset).
 
 **Dataset statistics**:
 
@@ -74,20 +76,20 @@ To train a YOLOv6 model, first download the pretrained model (S and L operating 
 ```bash
 cd yolov6_src
 # S
-python tools/train.py --batch 12 --conf configs/yolov6s_finetune.py --data data/bdss.yaml --device 0
+python tools/train.py --batch 12 --conf configs/yolov6s_finetune.py --data data/rsud20k.yaml --device 0
 # M
-python tools/train.py --batch 12 --conf configs/yolov6m_finetune.py --data data/bdss.yaml --device 0
+python tools/train.py --batch 12 --conf configs/yolov6m_finetune.py --data data/rsud20k.yaml --device 0
 # L
-python tools/train.py --batch 12 --conf configs/yolov6l_finetune.py --data data/bdss.yaml --device 0
+python tools/train.py --batch 12 --conf configs/yolov6l_finetune.py --data data/rsud20k.yaml --device 0
 # M6
-python tools/train.py --batch 6 --conf configs/yolov6m6_finetune.py --data data/bdss.yaml --device 0
+python tools/train.py --batch 6 --conf configs/yolov6m6_finetune.py --data data/rsud20k.yaml --device 0
 ```
 
 Evaluate model on validation or test set. Model checkpoints are saved in `yolov6_src/runs` folder.
 
 ```bash
-python tools/eval.py --data data/bdss.yaml  --weights runs/train/exp/weights/best_ckpt.pt --task val --device 0
-python tools/eval.py --data data/bdss.yaml  --weights runs/train/exp/weights/best_ckpt.pt --task test --save_dir runs/test/ --device 0
+python tools/eval.py --data data/rsud20k.yaml  --weights runs/train/exp/weights/best_ckpt.pt --task val --device 0
+python tools/eval.py --data data/rsud20k.yaml  --weights runs/train/exp/weights/best_ckpt.pt --task test --save_dir runs/test/ --device 0
 # or
 source run_eval.sh
 ```
@@ -96,17 +98,57 @@ Make predictions on set of images or videos.
 
 ```bash
 # infer on images
-python tools/infer.py --weights runs/train/exp/weights/best_ckpt.pt --yaml data/bdss.yaml --source ../datasets/bdss5k/images/test  --device 0
+python tools/infer.py --weights runs/train/exp/weights/best_ckpt.pt --yaml data/rsud20k.yaml --source ../datasets/rsud20k/images/test  --device 0
 # infer on videos
-python tools/infer.py --weights runs/train/exp/weights/best_ckpt.pt --yaml data/bdss.yaml --source ../datasets/resized_videos/ --device 0
+python tools/infer.py --weights runs/train/exp/weights/best_ckpt.pt --yaml data/rsud20k.yaml --source ../datasets/resized_videos/ --device 0
 # infer on images and save .txt files for pseudo labels
-python tools/infer.py --weights runs/pseudo/YOLOv6-M6/train/exp/weights/best_ckpt.pt --yaml data/bdss.yaml --source ../datasets/train_unlbl/  --device 0 --save-txt
+python tools/infer.py --weights runs/pseudo/YOLOv6-M6/train/exp/weights/best_ckpt.pt --yaml data/rsud20k.yaml --source ../datasets/train_unlbl/  --device 0 --save-txt
 ```
+
+We also provide training and evaluation code other object detection models such as YOLOv8, DETR and RTMDET [here](./object_detectors/).
+
+## 4. Pre-trained models
+
+We provide pretrained models on [GitHub Releases](https://github.com/hasibzunair/RSUD20K/releases/tag/v1) for reproducibility.
+
+|Model      | Params(M)  |   mAP(%)  |   Download   |
+|------------------|------------------|---------|-------------|
+| YOLOv6-S           | 18.5          | 72.0   | [download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/detr.pth) |
+| YOLOv6-M           | 34.9          | 73.5   | [download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/detr.pth) |
+| YOLOv6-L           | 59.6          | 73.7   | [download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/detr.pth) |
+| YOLOv6-M6           | 79.6          | 77.9   | [download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/detr.pth) |
+| YOLOv8-S        | 11.2 | 69.4   | [download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/yolov8s.pt) |
+| YOLOv8-M | 25.9  | 71.8  | [download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/yolov8m.pt) |
+| YOLOv8-L           | 43.7          | 70.4   | [download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/yolov8l.pt) |
+| RTMDeT           | 4.8          | 65.4   | [download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/rtmdet.pth) |
+| DETR           | 41.3          | 49.9   | [download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/detr.pth) |
+
+## 5. Demo
+
+TBA.
+
+## 6. Citation
+
+TBA.
 
 ## Project Notes
 
 <details><summary>Click to view</summary>
 <br>
+
+**[Feb 9, 2024]** `bdss` named changed to `rsud20k`. Dataset details:
+
+videos: has sub folders of different places/conditions which itself has clips of different streets.
+
+v1: train/val/test has 54//19/11 videos group partitioned in street level from `videos`.
+
+v2: train/val/test has frames from `v1`. 18762, 1008, 656 images.
+
+v3: 3,985 training images and labels, 14,762 unlabeled images. Some images dropped as no target objects.
+
+v4: 3,985 training images and labels, 126 validation images and labels from the train set itself.
+
+`bdss5k` : train, val and test sets have 3,985, 1,004 and 649 image/label pairs respectively. `train` split was used to train YOLOv6-M6 model for pseudo labeleing. `val` and `test` splits were created by semi-automatic labeleing.
 
 **[Nov 16, 2023]** Created BDSS20K! 18681 train (3985 labeled + 14696 pseudo), 1004 val and 649 test pairs. Total 20,334 pairs.
 
@@ -232,4 +274,4 @@ From here, we make train val and test sets for the videos by the following rule.
 
 ## Acknowledgements
 
-This codebase is built on top of https://github.com/meituan/YOLOv6.
+This codebase is built on top of [YOLOv6](https://github.com/meituan/YOLOv6), [Ultralytics](https://github.com/ultralytics/ultralytics), [MMDetection](https://github.com/open-mmlab/mmdetection) and [MMYolo](https://github.com/open-mmlab/mmyolo).
