@@ -12,7 +12,9 @@ This is official code for our **paper under review at ICIP 2024**:<br>
  
 ![RSUD20K Dataset](./media/image.png)
 
-RSUD20K is a new object detection dataset for road scene understanding, comprised of over 20K high-resolution images from the driving perspective on Bangladesh roads, and includes 130K bounding box annotations for 13 objects. It encompasses diverse road scenes, narrow streets and highways, objects from different viewpoints and scenes from crowded environments with densely cluttered objects and various weather conditions.
+RSUD20K is a new object detection dataset for road scene understanding, comprised of over **20K** high-resolution images from the driving perspective on Bangladesh roads, and includes **130K** bounding box annotations for **13** objects.
+
+Checkout the video demo [here](https://youtu.be/pdRXa10SrAc?si=WRMOPtA7j8IJxmWJ)!
 
 ## 1. Specification of dependencies
 
@@ -37,7 +39,7 @@ conda activate rsud
 
 ## 2. Dataset
 
-RSUD20K dataset is available to download at this [link](https://www.kaggle.com/datasets/hasibzunair/rsud20k-bangladesh-road-scene-understanding). RSUD20K consists of the following classes for multi-class object detection:
+RSUD20K dataset is available to download at this [link](https://www.kaggle.com/datasets/hasibzunair/rsud20k-bangladesh-road-scene-understanding). Open a new folder named `datasets` and keep it there. RSUD20K consists of the following classes for multi-class object detection:
 
 ```bash
 # classes.txt
@@ -67,7 +69,7 @@ For details on format, see [here](https://github.com/meituan/YOLOv6/blob/main/do
 | `test`  | 649 |
 | `pseudo` (used for training)  | 14696 |
 
-Filenames of different splits types can be found in [split-names.csv](./csv/split-names.csv). Open a new folder named `datasets` and keep it there.
+Filenames of different splits types can be found in [split-names.csv](./csv/split-names.csv).
 
 ## 3. Training and Evaluation
 
@@ -88,7 +90,9 @@ python tools/train.py --batch 6 --conf configs/yolov6m6_finetune.py --data data/
 Evaluate model on validation or test set. Model checkpoints are saved in `yolov6_src/runs` folder.
 
 ```bash
+# validation set
 python tools/eval.py --data data/rsud20k.yaml  --weights runs/train/exp/weights/best_ckpt.pt --task val --device 0
+# test set
 python tools/eval.py --data data/rsud20k.yaml  --weights runs/train/exp/weights/best_ckpt.pt --task test --save_dir runs/test/ --device 0
 # or
 source run_eval.sh
@@ -105,7 +109,7 @@ python tools/infer.py --weights runs/train/exp/weights/best_ckpt.pt --yaml data/
 python tools/infer.py --weights runs/pseudo/YOLOv6-M6/train/exp/weights/best_ckpt.pt --yaml data/rsud20k.yaml --source ../datasets/train_unlbl/  --device 0 --save-txt
 ```
 
-We also provide training and evaluation code other object detection models such as YOLOv8, DETR and RTMDET [here](./object_detectors/).
+We also provide training and evaluation code for state-of-the-art object detectors such as YOLOv8, DETR and RTMDET [here](./object_detectors/).
 
 ## 4. Pre-trained models
 
