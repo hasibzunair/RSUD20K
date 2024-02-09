@@ -37,8 +37,8 @@ train_dataloader = dict(
     dataset=dict(
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='annotations/train_bdss20k.json',
-        data_prefix=dict(img='train_bdss20k/')))
+        ann_file='annotations/train_rsud20k.json',
+        data_prefix=dict(img='train_rsud20k/')))
 
 val_dataloader = dict(
     batch_size=val_batch_size_per_gpu,
@@ -46,8 +46,8 @@ val_dataloader = dict(
     dataset=dict(
         metainfo=metainfo,
         data_root=data_root,
-        ann_file='annotations/val_bdss20k.json',
-        data_prefix=dict(img='val_bdss20k/')))
+        ann_file='annotations/val_rsud20k.json',
+        data_prefix=dict(img='val_rsud20k/')))
 
 
 param_scheduler = [
@@ -70,7 +70,7 @@ param_scheduler = [
 
 _base_.custom_hooks[1].switch_epoch = max_epochs - num_epochs_stage2
 
-val_evaluator = dict(ann_file=data_root + 'annotations/val_bdss20k.json')
+val_evaluator = dict(ann_file=data_root + 'annotations/val_rsud20k.json')
 
 
 default_hooks = dict(

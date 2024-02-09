@@ -19,7 +19,7 @@ torch.backends.cudnn.benchmark = True
 
 def Args():
     parser = argparse.ArgumentParser(description='Train YOLOv8l model with PyTorch.')
-    parser.add_argument('--yaml_path', default='./data/bdss20k.yaml', type=str, help='Path to the dataset YAML file.')
+    parser.add_argument('--yaml_path', default='./data/rsud20k.yaml', type=str, help='Path to the dataset YAML file.')
     parser.add_argument('--img_size', default=640, type=int, help='Image size (pixels) for training and validation.')
     parser.add_argument('--batch_size', default=12, type=int, help='Total batch size for training.')
     parser.add_argument('--epochs', default=400, type=int, help='Number of epochs to run during training.')

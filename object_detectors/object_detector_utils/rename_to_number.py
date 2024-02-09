@@ -17,13 +17,13 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description="Convert file names")
     parser.add_argument(
         "--image-base-path",
-        default="./datasets/bdss20k/images",
+        default="./datasets/rsud20k/images",
         type=str,
         help="base path of images",
     )
     parser.add_argument(
         "--label-base-path",
-        default="./datasets/bdss20k/labels",
+        default="./datasets/rsud20k/labels",
         type=str,
         help="base path of labels",
     )

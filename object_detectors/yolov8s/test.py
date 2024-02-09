@@ -18,7 +18,7 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--yaml_path",
-        default="./data/bdss20k.yaml",
+        default="./data/rsud20k.yaml",
         type=str,
         help="Path to the dataset YAML file.",
     )

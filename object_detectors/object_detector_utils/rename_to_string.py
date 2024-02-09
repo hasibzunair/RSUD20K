@@ -21,7 +21,7 @@ def parse_arguments():
     )
     # parser.add_argument(
     #     "--label-base-path",
-    #     default="./datasets/bdss20k/labels",
+    #     default="./datasets/rsud20k/labels",
     #     type=str,
     #     help="base path of labels",
     # )

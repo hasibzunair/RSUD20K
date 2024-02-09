@@ -28,8 +28,8 @@ test_dataloader = dict(
     dataset=dict(
         metainfo=metainfo,
         data_root=data_root,
-        ann_file='annotations/test_bdss20k.json',
-        data_prefix=dict(img='test_bdss20k/')))
+        ann_file='annotations/test_rsud20k.json',
+        data_prefix=dict(img='test_rsud20k/')))
 
 param_scheduler = [
     dict(
@@ -51,7 +51,7 @@ param_scheduler = [
 
 _base_.custom_hooks[1].switch_epoch = max_epochs - num_epochs_stage2
 
-test_evaluator = dict(ann_file=data_root + 'annotations/test_bdss20k.json')
+test_evaluator = dict(ann_file=data_root + 'annotations/test_rsud20k.json')
 
 default_hooks = dict(
     checkpoint=dict(interval=10, max_keep_ckpts=2, save_best='auto'),

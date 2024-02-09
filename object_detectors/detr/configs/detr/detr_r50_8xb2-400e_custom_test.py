@@ -21,8 +21,8 @@ test_dataloader = dict(
     dataset=dict(
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='annotations/test_bdss20k.json',
-        data_prefix=dict(img='test_bdss20k/')))
+        ann_file='annotations/test_rsud20k.json',
+        data_prefix=dict(img='test_rsud20k/')))
 
 # Modify metric related settings
-test_evaluator = dict(ann_file=data_root + 'annotations/test_bdss20k.json')
+test_evaluator = dict(ann_file=data_root + 'annotations/test_rsud20k.json')

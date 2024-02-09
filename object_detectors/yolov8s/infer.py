@@ -18,7 +18,7 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--test_image_path",
-        default="../datasets/bdss20k/images/test/",
+        default="../datasets/rsud20k/images/test/",
         type=str,
         help="Path to test data images.",
     )
