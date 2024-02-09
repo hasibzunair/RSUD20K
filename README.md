@@ -117,10 +117,10 @@ We provide pretrained models on [GitHub Releases](https://github.com/hasibzunair
 
 |Model      | Params(M)  |   mAP(%)  |   Download   |
 |------------------|------------------|---------|-------------|
-| YOLOv6-S           | 18.5          | 72.0   | [download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/detr.pth) |
-| YOLOv6-M           | 34.9          | 73.5   | [download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/detr.pth) |
-| YOLOv6-L           | 59.6          | 73.7   | [download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/detr.pth) |
-| YOLOv6-M6           | 79.6          | 77.9   | [download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/detr.pth) |
+| YOLOv6-S           | 18.5          | 72.0   | [download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/yolov6s.pt) |
+| YOLOv6-M           | 34.9          | 73.5   | [download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/yolov6m.pt) |
+| YOLOv6-L           | 59.6          | 73.7   | [download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/yolov8l.pt) |
+| YOLOv6-M6           | 79.6          | 77.9   | [download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/yolov6m6.pt) |
 | YOLOv8-S        | 11.2 | 69.4   | [download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/yolov8s.pt) |
 | YOLOv8-M | 25.9  | 71.8  | [download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/yolov8m.pt) |
 | YOLOv8-L           | 43.7          | 70.4   | [download](https://github.com/hasibzunair/RSUD20K/releases/download/v1/yolov8l.pt) |
