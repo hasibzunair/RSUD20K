@@ -4,7 +4,7 @@
 
 Hasib Zunair, Shakib Khan, A. Ben Hamza
 
-[[`Paper`](https://arxiv.org/abs/2401.07322)] [[`Dataset`](https://www.kaggle.com/datasets/hasibzunair/rsud20k-bangladesh-road-scene-understanding) [[`Demo`](https://github.com/hasibzunair/RSUD20K?tab=readme-ov-file#5-demo) [[`BibTeX`](#5-citation)]
+[[`Paper`](https://arxiv.org/abs/2401.07322)] [[`Dataset`](https://www.kaggle.com/datasets/hasibzunair/rsud20k-bangladesh-road-scene-understanding) [[`Demo`](https://github.com/hasibzunair/RSUD20K?tab=readme-ov-file#5-demo) [[`BibTeX`](https://github.com/hasibzunair/RSUD20K?tab=readme-ov-file#6-citation)]
 
 This is official code for our **paper under review at ICIP 2024**:<br>
 [RSUD20K: A Dataset for Road Scene Understanding In Autonomous Driving](https://arxiv.org/abs/2401.07322)
