@@ -130,7 +130,7 @@ We provide pretrained models on [GitHub Releases](https://github.com/hasibzunair
 
 ## 5. Demo
 
-TBA.
+Try out our [demo](https://huggingface.co/spaces/Shakib-IO/RSUD20K_DEMO) in hugging face spaces!
 
 ## 6. Citation
 
