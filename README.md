@@ -280,3 +280,7 @@ From here, we make train val and test sets for the videos by the following rule.
 ## Acknowledgements
 
 This codebase is built on top of [YOLOv6](https://github.com/meituan/YOLOv6), [Ultralytics](https://github.com/ultralytics/ultralytics), [MMDetection](https://github.com/open-mmlab/mmdetection) and [MMYolo](https://github.com/open-mmlab/mmyolo).
+
+## License
+
+Dataset is for research and non-commercial use only. See [Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
