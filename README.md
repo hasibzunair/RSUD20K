@@ -283,4 +283,4 @@ This codebase is built on top of [YOLOv6](https://github.com/meituan/YOLOv6), [U
 
 ## License
 
-Dataset is for research and non-commercial use only. See [Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
+Dataset is for research purposes and non-commercial use only. See [Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
