@@ -279,7 +279,7 @@ From here, we make train val and test sets for the videos by the following rule.
 
 ## Acknowledgements
 
-This codebase is built on top of [YOLOv6](https://github.com/meituan/YOLOv6), [Ultralytics](https://github.com/ultralytics/ultralytics), [MMDetection](https://github.com/open-mmlab/mmdetection) and [MMYolo](https://github.com/open-mmlab/mmyolo).
+This codebase is built on top of [autodistill](https://github.com/autodistill/autodistill), [YOLOv6](https://github.com/meituan/YOLOv6), [Ultralytics](https://github.com/ultralytics/ultralytics), [MMDetection](https://github.com/open-mmlab/mmdetection) and [MMYolo](https://github.com/open-mmlab/mmyolo).
 
 ## License
 
