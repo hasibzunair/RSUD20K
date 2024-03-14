@@ -134,7 +134,15 @@ Try out our [demo](https://huggingface.co/spaces/Shakib-IO/RSUD20K_DEMO) in hugg
 
 ## 6. Citation
 
-TBA.
+```bibtex
+@article{zunair2024rsud20k,
+  title={RSUD20K: A Dataset for Road Scene Understanding In Autonomous Driving},
+  author={Zunair, Hasib and Khan, Shakib and Hamza, A Ben},
+  journal={arXiv preprint arXiv:2401.07322},
+  year={2024}
+}
+```
+
 
 ## Project Notes
 
