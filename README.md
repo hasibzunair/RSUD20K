@@ -20,7 +20,7 @@ RSUD20K is a new object detection dataset for road scene understanding, comprise
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/pdRXa10SrAc/0.jpg)](https://www.youtube.com/watch?v=pdRXa10SrAc)
 
-**RSUD20K trained model outputs in action! Play in 4K for best results.**
+**RSUD20K trained model predictions in action! Play in 4K for best results.**
 
 ## 1. Specification of dependencies
 
