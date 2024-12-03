@@ -14,6 +14,9 @@ This is official code for our **ICIP 2024 paper**:<br>
 
 RSUD20K is a new object detection dataset for road scene understanding, comprised of over **20K** high-resolution images from the driving perspective on Bangladesh roads, and includes **130K** bounding box annotations for **13** objects.
 
+**Link to ICIP'2024 Talk.**
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/dLsau3s3UIY/0.jpg)](https://youtu.be/dLsau3s3UIY)
+
 **Here's a collage of outputs of RSUD20K trained model in action! Play in 4K for best results.**
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/pdRXa10SrAc/0.jpg)](https://www.youtube.com/watch?v=pdRXa10SrAc)
 
